@@ -1,0 +1,49 @@
+/// Base scaling factor for all sizing and spacing
+$scaling-factor: 1.618;
+
+/// Scaling factor for a full step
+$full-step: $scaling-factor;
+/// Scaling factor for a half step
+$half-step: calc(round(pow($scaling-factor, 0.5), 0.001));
+/// Scaling factor for a quarter step
+$quarter-step: calc(round(pow($scaling-factor, 0.25), 0.001));
+/// Scaling factor for a quarter step
+$eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
+
+// Base sizing values
+
+$size-3xs: calc(1em / round(pow($full-step, 4), 0.001));
+$size-2xs: calc(1em / round(pow($full-step, 3), 0.001));
+$size-xs: calc(1em / round(pow($full-step, 2), 0.001));
+$size-sm: calc(1em / $full-step);
+$size-md: 1em;
+$size-lg: calc(1em * $full-step);
+$size-xl: calc(1em * round(pow($full-step, 2), 0.001));
+$size-2xl: calc(1em * round(pow($full-step, 3), 0.001));
+$size-3xl: calc(1em * round(pow($full-step, 4), 0.001));
+$size-4xl: calc(1em * round(pow($full-step, 5), 0.001));
+
+
+// Typography sizing values
+
+$size-display-1: calc(1em * round(pow($full-step, 3), 0.001));
+$size-display-2: calc(1em * round(pow($full-step, 2), 0.001));
+$size-title-1: calc(1em * $full-step * $half-step);
+$size-title-2: calc(1em * $full-step);
+$size-title-3: calc(1em * $half-step);
+$size-heading: calc(1em * $quarter-step);
+$size-subheading: calc(1em / $quarter-step);
+$size-body: 1em;
+$size-label: calc(1em / $quarter-step / $eighth-step);
+
+// Line height values
+
+$line-height-display-1: $quarter-step;
+$line-height-display-2: $half-step;
+$line-height-title-1: $half-step;
+$line-height-title-2: $half-step;
+$line-height-title-3: $half-step;
+$line-height-heading: $half-step;
+$line-height-subheading: $half-step;
+$line-height-body: $full-step;
+$line-height-label: $half-step;

@@ -1,0 +1,94 @@
+/// Base scaling factor for all sizing and spacing
+$scaling-factor: 1.618;
+
+/// Scaling factor for a full step
+$full-step: $scaling-factor;
+/// Scaling factor for a half step
+$half-step: calc(round(pow($scaling-factor, 0.5), 0.001));
+/// Scaling factor for a quarter step
+$quarter-step: calc(round(pow($scaling-factor, 0.25), 0.001));
+/// Scaling factor for a quarter step
+$eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
+
+
+//
+// Sizes
+//
+
+
+$size-3xs: calc(1em / round(pow($full-step, 4), 0.001));
+$size-2xs: calc(1em / round(pow($full-step, 3), 0.001));
+$size-xs: calc(1em / round(pow($full-step, 2), 0.001));
+$size-sm: calc(1em / $full-step);
+$size-md: 1em;
+$size-lg: calc(1em * $full-step);
+$size-xl: calc(1em * round(pow($full-step, 2), 0.001));
+$size-2xl: calc(1em * round(pow($full-step, 3), 0.001));
+$size-3xl: calc(1em * round(pow($full-step, 4), 0.001));
+$size-4xl: calc(1em * round(pow($full-step, 5), 0.001));
+
+
+//
+// Theme Colors
+//
+
+
+$color-background: $color-white;
+
+$color-white: hsl(0, 0%, 100%);
+
+// Neutral
+$color-neutral: $color-neutral-500;
+$color-neutral-50: hsl(210, 20%, 98%);
+$color-neutral-100: hsl(220, 14%, 96%);
+$color-neutral-200: hsl(220, 13%, 91%);
+$color-neutral-300: hsl(218, 14%, 84%);
+$color-neutral-400: hsl(218, 12%, 64%);
+$color-neutral-500: hsl(220, 10%, 46%);
+$color-neutral-600: hsl(216, 15%, 34%);
+$color-neutral-700: hsl(217, 21%, 27%);
+$color-neutral-800: hsl(216, 31%, 17%);
+$color-neutral-900: hsl(220, 43%, 11%);
+$color-neutral-950: hsl(224, 72%, 4%);
+
+// Primary
+$color-primary: $color-primary-500;
+$color-primary-50: hsl(203, 80%, 96%);
+$color-primary-100: hsl(203, 86%, 89%);
+$color-primary-200: hsl(202, 82%, 78%);
+$color-primary-300: hsl(203, 89%, 67%);
+$color-primary-400: hsl(203, 83%, 56%);
+$color-primary-500: hsl(203, 85%, 45%);
+$color-primary-600: hsl(203, 100%, 34%);
+$color-primary-700: hsl(203, 100%, 23%);
+$color-primary-800: hsl(203, 100%, 16%);
+$color-primary-900: hsl(203, 100%, 9%);
+$color-primary-950: hsl(202, 100%, 5%);
+
+// Secondary
+$color-secondary: $color-secondary-500;
+$color-secondary-50: hsl(44, 79%, 91%);
+$color-secondary-100: hsl(44, 79%, 87%);
+$color-secondary-200: hsl(44, 80%, 79%);
+$color-secondary-300: hsl(44, 79%, 71%);
+$color-secondary-400: hsl(44, 79%, 63%);
+$color-secondary-500: hsl(44, 79%, 55%);
+$color-secondary-600: hsl(44, 79%, 47%);
+$color-secondary-700: hsl(44, 79%, 35%);
+$color-secondary-800: hsl(44, 79%, 23%);
+$color-secondary-900: hsl(44, 79%, 11%);
+$color-secondary-950: hsl(44, 76%, 5%);
+
+// Accent
+$color-accent: $color-accent-500;
+$color-accent-50: hsl(54, 91%, 95%);
+$color-accent-100: hsl(57, 90%, 92%);
+$color-accent-200: hsl(57, 92%, 85%);
+$color-accent-300: hsl(59, 91%, 78%);
+$color-accent-400: hsl(60, 92%, 71%);
+$color-accent-500: hsl(61, 92%, 59%);
+$color-accent-600: hsl(62, 92%, 47%);
+$color-accent-700: hsl(63, 92%, 38%);
+$color-accent-800: hsl(64, 91%, 23%);
+$color-accent-900: hsl(66, 93%, 11%);
+$color-accent-950: hsl(65, 92%, 5%);
