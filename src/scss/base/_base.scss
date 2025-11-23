@@ -1,0 +1,29 @@
+@use '../abstract/variables/colors';
+
+/**
+ * Set root font size
+ */
+:root {
+  font-size: 1rem;
+}
+
+/**
+ * Set base colors
+ */
+body {
+  background-color: colors.$background;
+  color: colors.$on-background;
+}
+
+/**
+ * Remove default margin padding and borders
+ */
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}

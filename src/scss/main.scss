@@ -1,1 +1,5 @@
-@use "./vendors/normalize.scss"
+@use './vendors/normalize.scss';
+
+@use './base/base';
+@use './base/fonts';
+@use './base/typography';
