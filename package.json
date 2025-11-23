@@ -13,6 +13,7 @@
     "preact": "^10.27.2"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
     "@preact/preset-vite": "^2.10.2",
     "@types/node": "^24.10.1",
     "sass-embedded": "^1.93.3",
