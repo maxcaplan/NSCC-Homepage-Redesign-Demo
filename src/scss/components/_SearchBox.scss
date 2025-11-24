@@ -1,0 +1,44 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/functions';
+@use '/src/scss/abstract/mixins';
+
+.search-box-container {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  max-width: functions.half-step-up(sizing.$size-5xl);
+
+  .search-input {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right-width: 0;
+  }
+
+  .search-submit {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding-left: sizing.$size-sm;
+    padding-right: sizing.$size-xs;
+    border-top-right-radius: sizing.$size-2xs;
+    border-bottom-right-radius: sizing.$size-2xs;
+    border: colors.$neutral-500 1px solid;
+    border-left-width: 0;
+    background-color: colors.$white;
+    color: colors.$neutral-500;
+    @include mixins.transition-colors;
+  }
+
+  .search-submit:hover {
+    cursor: pointer;
+    background-color: colors.$neutral-200;
+    color: colors.$neutral-700;
+  }
+
+  .search-icon {
+    width: auto;
+    height: functions.half-step-up(sizing.$size-md);
+  }
+}

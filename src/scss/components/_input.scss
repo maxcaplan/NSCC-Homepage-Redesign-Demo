@@ -1,0 +1,24 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/fonts';
+
+input {
+  padding-left: sizing.$size-sm;
+  padding-right: sizing.$size-sm;
+  padding-top: sizing.$size-xs;
+  padding-bottom: sizing.$size-xs;
+  border-radius: sizing.$size-2xs;
+  border: colors.$neutral-500 1px solid;
+  font-family: fonts.$regular;
+  font-size: sizing.$size-body;
+  line-height: sizing.$line-height-body;
+  background-color: colors.$white;
+  color: colors.$on-background;
+}
+
+input::placeholder {
+  font-family: fonts.$regular;
+  font-size: sizing.$size-body;
+  line-height: sizing.$line-height-body;
+  color: colors.$neutral-500;
+}

@@ -22,6 +22,11 @@ $size-xl: calc(1em * round(pow($full-step, 2), 0.001));
 $size-2xl: calc(1em * round(pow($full-step, 3), 0.001));
 $size-3xl: calc(1em * round(pow($full-step, 4), 0.001));
 $size-4xl: calc(1em * round(pow($full-step, 5), 0.001));
+$size-5xl: calc(1em * round(pow($full-step, 6), 0.001));
+$size-6xl: calc(1em * round(pow($full-step, 7), 0.001));
+$size-7xl: calc(1em * round(pow($full-step, 8), 0.001));
+$size-8xl: calc(1em * round(pow($full-step, 9), 0.001));
+$size-9xl: calc(1em * round(pow($full-step, 10), 0.001));
 
 
 // Typography sizing values
@@ -47,3 +52,7 @@ $line-height-heading: $half-step;
 $line-height-subheading: $half-step;
 $line-height-body: $full-step;
 $line-height-label: $half-step;
+
+// Container sizing values
+
+$size-container: 1400px;

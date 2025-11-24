@@ -1,0 +1,91 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/animations';
+@use '/src/scss/abstract/variables/colors';
+@use 'sass:color';
+
+
+//
+// Typography mixins
+//
+
+
+@mixin text-display-1 {
+	font-size: sizing.$size-display-1;
+	line-height: sizing.$line-height-display-1;
+}
+
+@mixin text-display-2 {
+	font-size: sizing.$size-display-2;
+	line-height: sizing.$line-height-display-2;
+}
+
+@mixin text-title-1 {
+	font-size: sizing.$size-title-1;
+	line-height: sizing.$line-height-title-1;
+}
+
+@mixin text-title-2 {
+	font-size: sizing.$size-title-2;
+	line-height: sizing.$line-height-title-2;
+}
+
+@mixin text-title-3 {
+	font-size: sizing.$size-title-3;
+	line-height: sizing.$line-height-title-3;
+}
+
+@mixin text-heading {
+	font-size: sizing.$size-heading;
+	line-height: sizing.$line-height-heading;
+}
+
+@mixin text-subheading {
+	font-size: sizing.$size-subheading;
+	line-height: sizing.$line-height-subheading;
+}
+
+@mixin text-body {
+	font-size: sizing.$size-body;
+	line-height: sizing.$line-height-body;
+}
+
+@mixin text-label {
+	font-size: sizing.$size-label;
+	line-height: sizing.$line-height-label;
+}
+
+
+//
+// Shadow mixins
+//
+
+
+@mixin shadow-sm {
+	box-shadow: 0 0 sizing.$size-sm sizing.$size-sm color.change(colors.$neutral-950, $alpha: 0.15);
+}
+
+@mixin shadow-md {
+	box-shadow: 0 0 sizing.$size-md sizing.$size-md color.change(colors.$neutral-950, $alpha: 0.30);
+}
+
+@mixin shadow-lg {
+	box-shadow: 0 0 sizing.$size-lg sizing.$size-lg color.change(colors.$neutral-950, $alpha: 0.45);
+}
+
+
+//
+// Animation mixins
+//
+
+
+@mixin transition-colors($duration: animations.$transition-fast) {
+	transition-property: color, background-color, border;
+	transition-duration: $duration;
+	transition-timing-function: animations.$transition-timing;
+}
+
+@mixin transition-transform($duration: animations.$transition-fast) {
+	transition-property: transform;
+	transition-duration: $duration;
+	transition-timing-function: animations.$transition-timing;
+}

@@ -1,0 +1,20 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/functions';
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: sizing.$size-xs;
+  flex: none;
+
+  .logo {
+    height: functions.half-step-up(sizing.$size-lg);
+    width: fit-content;
+    fill: currentColor;
+  }
+
+  .logo-subheading {
+    flex: none;
+  }
+}

@@ -1,0 +1,61 @@
+@use "/src/scss/abstract/variables/sizing";
+
+//
+// Sizing mixins
+//
+
+/// Increase a value by one or more full steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of steps to increase by
+@function full-step-up($value: 1em, $steps: 1) {
+  @return calc($value * round(pow(sizing.$full-step, $steps), 0.001));
+}
+
+/// Increase a value by one or more half steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of half steps to increase by
+@function half-step-up($value: 1em, $steps: 1) {
+  @return calc($value * round(pow(sizing.$half-step, $steps), 0.001));
+}
+
+/// Increase a value by one or more quarter steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of quarter steps to increase by
+@function quarter-step-up($value: 1em, $steps: 1) {
+  @return calc($value * round(pow(sizing.$quarter-step, $steps), 0.001));
+}
+
+/// Increase a value by one or more eighth steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of eighth steps to increase by
+@function eighth-step-up($value: 1em, $steps: 1) {
+  @return calc($value * round(pow(sizing.$eighth-step, $steps), 0.001));
+}
+
+/// Decrease a value by one or more full steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of steps to decrease by
+@function full-step-down($value: 1em, $steps: 1) {
+  @return calc($value / round(pow(sizing.$full-step, $steps), 0.001));
+}
+
+/// Decrease a value by one or more half steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of half steps to decrease by
+@function half-step-down($value: 1em, $steps: 1) {
+  @return calc($value / round(pow(sizing.$half-step, $steps), 0.001));
+}
+
+/// Decrease a value by one or more quarter steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of quarter steps to decrease by
+@function quarter-step-down($value: 1em, $steps: 1) {
+  @return calc($value / round(pow(sizing.$quarter-step, $steps), 0.001));
+}
+
+/// Decrease a value by one or more eighth steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of eighth steps to decrease by
+@function eighth-step-down($value: 1em, $steps: 1) {
+  @return calc($value / round(pow(sizing.$eighth-step, $steps), 0.001));
+}

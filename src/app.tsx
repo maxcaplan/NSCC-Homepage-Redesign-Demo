@@ -1,12 +1,16 @@
-import { Icon } from "./components/Icon";
+import { Header } from "./components/layout/Header";
 
 export function App() {
-  return (
-    <>
-      <h1>Hello World</h1>
-      <p>Lorem ipsum dolar</p>
+	return (
+		<>
+			<Header />
 
-      <Icon icon="caret-down-solid" />
-    </>
-  )
+			<section class="section">
+				<div class="container">
+					<h1>Hello World</h1>
+					<p>Lorem ipsum dolar</p>
+				</div>
+			</section>
+		</>
+	)
 }

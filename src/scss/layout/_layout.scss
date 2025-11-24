@@ -1,0 +1,18 @@
+@use "/src/scss/abstract/variables/sizing";
+
+.section {
+	display: flex;
+	justify-content: center;
+	flex-direction: col;
+	padding-left: sizing.$size-md;
+	padding-right: sizing.$size-md;
+	width: 100%;
+}
+
+/**
+ * Layout component for maxiumum width
+ */
+.container {
+	width: 100%;
+	max-width: sizing.$size-container;
+}

@@ -1,0 +1,36 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/functions';
+
+.icon {
+  fill: currentColor;
+}
+
+.icon-xs {
+  height: sizing.$size-xs;
+  width: auto;
+}
+
+.icon-sm {
+  height: sizing.$size-sm;
+  width: auto;
+}
+
+.icon-md {
+  height: sizing.$size-md;
+  width: auto;
+}
+
+.icon-lg {
+  height: sizing.$size-lg;
+  width: auto;
+}
+
+.icon-xl {
+  height: sizing.$size-xl;
+  width: auto;
+}
+
+.icon-text {
+  height: 1em;
+  width: auto;
+}

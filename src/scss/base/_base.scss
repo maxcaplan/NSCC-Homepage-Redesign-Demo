@@ -1,4 +1,4 @@
-@use '../abstract/variables/colors';
+@use '/src/scss/abstract/variables/colors';
 
 /**
  * Set root font size
@@ -26,4 +26,13 @@ body {
   margin: 0;
   padding: 0;
   border: 0 solid;
+}
+
+/**
+ * Remove default link styles
+ */
+a {
+  color: inherit;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
 }

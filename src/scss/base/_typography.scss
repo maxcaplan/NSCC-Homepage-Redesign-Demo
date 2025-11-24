@@ -1,18 +1,5 @@
-@use '../abstract/variables/sizing';
-
-$font-regular: (
-  open-sans,
-  Arial,
-  Helvetica,
-  sans-serif
-);
-
-$font-display: (
-  mulish,
-  Arial,
-  Helvetica,
-  sans-serif
-);
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/fonts';
 
 
 /**
@@ -21,55 +8,62 @@ $font-display: (
 
 
 * {
-  font-family: $font-regular;
+  font-family: fonts.$regular;
 }
 
 h1 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-display-1;
   line-height: sizing.$line-height-display-1;
 }
 
 h2 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-display-2;
   line-height: sizing.$line-height-display-2;
 }
 
 h3 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-title-1;
   line-height: sizing.$line-height-title-1;
 }
 
 h4 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-title-2;
   line-height: sizing.$line-height-title-2;
 }
 
 h5 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-title-3;
   line-height: sizing.$line-height-title-3;
 }
 
 h6 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-heading;
   line-height: sizing.$line-height-heading;
 }
 
 h6 {
-  font-family: $font-display;
+  font-family: fonts.$display;
   font-size: sizing.$size-subheading;
   line-height: sizing.$line-height-subheading;
 }
 
-p {
-  font-family: $font-regular;
+p,
+input {
+  font-family: fonts.$regular;
   font-size: sizing.$size-body;
   line-height: sizing.$line-height-body;
+}
+
+label {
+  font-family: fonts.$regular;
+  font-size: sizing.$size-label;
+  line-height: sizing.$line-height-label;
 }
 
 
@@ -130,11 +124,11 @@ p {
 
 
 .font-regular {
-  font-family: $font-regular;
+  font-family: fonts.$regular;
 }
 
 .font-display {
-  font-family: $font-display;
+  font-family: fonts.$display;
 }
 
 .font-bold {

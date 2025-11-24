@@ -1,0 +1,79 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/mixins';
+
+.top-nav-mega-menu-toggle {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	gap: sizing.$size-2xs;
+	height: 100%;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-top: sizing.$size-xs;
+	padding-bottom: sizing.$size-xs;
+	background: none;
+	color: colors.$white;
+	font-family: fonts.$display;
+	text-wrap: nowrap;
+	@include mixins.text-body;
+	@include mixins.transition-colors;
+
+	* {
+		font-family: fonts.$display;
+		text-wrap: nowrap;
+		@include mixins.text-body;
+	}
+
+	.open-icon {
+		@include mixins.transition-transform;
+	}
+}
+
+.top-nav-mega-menu-toggle:hover {
+	cursor: pointer;
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle:not([aria-checked="true"]):hover {
+	background-color: colors.$primary-500;
+
+	.open-icon {
+		transform: translateY(sizing.$size-2xs);
+	}
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle:not([aria-checked="true"]).active {
+	background-color: colors.$primary-800;
+	font-weight: 700;
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle[aria-checked="true"] {
+	background-color: colors.$white;
+	color: colors.$primary-700;
+	font-weight: 700;
+
+	.icon:not(.open-icon):not(.close-icon) {
+		color: colors.$primary-700;
+	}
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle[aria-checked="false"] {
+	.icon:not(.open-icon):not(.close-icon) {
+		color: colors.$accent-500;
+	}
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle[aria-checked="true"] .open-icon {
+	display: none;
+}
+
+/* purgecss ignore */
+.top-nav-mega-menu-toggle:not([aria-checked="true"]) .close-icon {
+	display: none;
+}

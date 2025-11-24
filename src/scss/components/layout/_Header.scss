@@ -1,0 +1,64 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/mixins';
+
+.header {
+	width: 100%;
+	color: colors.$white;
+	@include mixins.shadow-sm;
+
+	.header-top {
+		width: 100%;
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+		padding-top: sizing.$size-md;
+		padding-bottom: sizing.$size-md;
+		background-color: colors.$primary-700;
+		display: flex;
+		justify-content: center;
+	}
+
+	.header-top .container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.logo-container {
+		width: fit-content;
+	}
+
+	.right-align {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		width: 100%;
+	}
+
+	.header-bottom {
+		width: 100%;
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+		display: flex;
+		justify-content: center;
+		background-color: colors.$primary-600;
+	}
+
+	.header-bottom .container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.primary-navigation {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+	}
+
+	.secondary-navigation {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		align-items: center;
+		justify-content: end;
+	}
+}
