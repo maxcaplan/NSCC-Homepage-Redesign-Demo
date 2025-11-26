@@ -1,12 +1,18 @@
-@use "/src/scss/abstract/variables/sizing";
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/mixins';
 
 .section {
 	display: flex;
-	justify-content: center;
-	flex-direction: col;
-	padding-left: sizing.$size-md;
-	padding-right: sizing.$size-md;
+	align-items: center;
+	flex-direction: column;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
 	width: 100%;
+
+	@include mixins.breakpoint('small') {
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+	}
 }
 
 /**

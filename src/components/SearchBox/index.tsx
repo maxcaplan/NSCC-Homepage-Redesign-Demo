@@ -1,6 +1,7 @@
 import "@/scss/components/_SearchBox.scss"
 import { Icon } from "../Icon";
 
+/** Website search box form component */
 export function SearchBox() {
 	return (
 		<form class="search-box-container">

@@ -1,0 +1,39 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/mixins';
+
+.header-menu-toggle {
+	height: sizing.$size-xl;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: sizing.$size-xs;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	border-radius: sizing.$size-2xs;
+	background-color: colors.$primary-700;
+	border: colors.$primary-600 1px solid;
+	color: colors.$white;
+	font-family: fonts.$display;
+	font-weight: 700;
+	@include mixins.text-label;
+	@include mixins.transition-colors;
+
+	@include mixins.breakpoint('small') {
+		@include mixins.text-body;
+	}
+}
+
+.header-menu-toggle:hover {
+	cursor: pointer;
+	background-color: colors.$primary-600;
+	border-color: colors.$primary-500;
+}
+
+/* purgecss ignore */
+.header-menu-toggle[aria-checked="true"] {
+	background-color: colors.$primary-600;
+	border: none;
+	outline: colors.$primary-200 2px solid;
+}

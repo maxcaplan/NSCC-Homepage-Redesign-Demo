@@ -10,7 +10,11 @@ $quarter-step: calc(round(pow($scaling-factor, 0.25), 0.001));
 /// Scaling factor for a quarter step
 $eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
 
+
+//
 // Base sizing values
+//
+
 
 $size-3xs: calc(1em / round(pow($full-step, 4), 0.001));
 $size-2xs: calc(1em / round(pow($full-step, 3), 0.001));
@@ -29,7 +33,10 @@ $size-8xl: calc(1em * round(pow($full-step, 9), 0.001));
 $size-9xl: calc(1em * round(pow($full-step, 10), 0.001));
 
 
+//
 // Typography sizing values
+//
+
 
 $size-display-1: calc(1em * round(pow($full-step, 3), 0.001));
 $size-display-2: calc(1em * round(pow($full-step, 2), 0.001));
@@ -41,7 +48,11 @@ $size-subheading: calc(1em / $quarter-step);
 $size-body: 1em;
 $size-label: calc(1em / $quarter-step / $eighth-step);
 
+
+//
 // Line height values
+//
+
 
 $line-height-display-1: $quarter-step;
 $line-height-display-2: $half-step;
@@ -53,6 +64,22 @@ $line-height-subheading: $half-step;
 $line-height-body: $full-step;
 $line-height-label: $half-step;
 
-// Container sizing values
 
-$size-container: 1400px;
+// 
+//Container sizing values
+//
+
+
+/// Max width value of layout containers
+$size-container: calc(1em * round(pow($full-step, 9), 0.001) * $quarter-step);
+
+
+//
+// Breakpoint values
+//
+
+$breakpoints: (
+	'small': (min-width: 480px),
+	'medium': (min-width: 768px),
+	'large': (min-width: 1200px),
+);

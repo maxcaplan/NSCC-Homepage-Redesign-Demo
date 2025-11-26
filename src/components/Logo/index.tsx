@@ -15,6 +15,7 @@ interface LogoProps {
 	class?: string;
 }
 
+/** Website logo component */
 export function Logo(props: LogoProps) {
 	// Set default logo link label
 	if (props.label === undefined) {
@@ -32,7 +33,7 @@ export function Logo(props: LogoProps) {
 			<NSCCLogo class="logo" />
 
 			{props.subheading || props.subheading === undefined &&
-				<p class="logo-subheading text-subheading font-display">
+				<p class="logo-subheading">
 					Nova Scotia Community College
 				</p>
 			}

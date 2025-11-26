@@ -1,20 +1,23 @@
 @use '/src/scss/abstract/variables/sizing';
-@use '/src/scss/abstract/functions';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/mixins';
 
 .logo-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: sizing.$size-xs;
-  flex: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: sizing.$size-xs;
+	flex: none;
+	width: fit-content;
 
-  .logo {
-    height: functions.half-step-up(sizing.$size-lg);
-    width: fit-content;
-    fill: currentColor;
-  }
+	.logo {
+		width: fit-content;
+		fill: currentColor;
+	}
 
-  .logo-subheading {
-    flex: none;
-  }
+	.logo-subheading {
+		flex: none;
+		font-family: fonts.$display;
+		@include mixins.text-subheading;
+	}
 }

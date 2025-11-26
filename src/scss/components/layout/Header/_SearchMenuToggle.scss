@@ -1,0 +1,41 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/fonts";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+.search-menu-toggle {
+	height: sizing.$size-xl;
+	width: sizing.$size-xl;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: sizing.$size-2xs;
+	background-color: colors.$primary-700;
+	border: colors.$primary-600 1px solid;
+	color: colors.$white;
+	font-family: fonts.$display;
+	@include mixins.text-label;
+	@include mixins.transition-colors;
+
+	.search-menu-icon {
+		height: functions.half-step-up(sizing.$size-md);
+	}
+
+	@include mixins.breakpoint('small') {
+		@include mixins.text-body;
+	}
+}
+
+.search-menu-toggle:hover {
+	cursor: pointer;
+	background-color: colors.$primary-600;
+	border-color: colors.$primary-500;
+}
+
+/* purgecss ignore */
+.search-menu-toggle[aria-checked="true"] {
+	background-color: colors.$primary-600;
+	border: none;
+	outline: colors.$primary-200 2px solid;
+}

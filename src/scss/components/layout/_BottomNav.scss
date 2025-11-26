@@ -1,0 +1,33 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/mixins";
+
+.bottom-nav {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding-left: sizing.$size-xs;
+	padding-right: sizing.$size-xs;
+	background-color: colors.$neutral-50;
+	border-top: colors.$neutral-500 1px solid;
+	@include mixins.shadow-sm;
+
+	@include mixins.breakpoint('small') {
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+	}
+
+	@include mixins.breakpoint('large') {
+		display: none;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+}

@@ -1,9 +1,11 @@
+import { BottomNav } from "./components/layout/BottomNav";
 import { Header } from "./components/layout/Header";
 
 export function App() {
 	return (
 		<>
 			<Header />
+			<BottomNav />
 
 			<section class="section">
 				<div class="container">
