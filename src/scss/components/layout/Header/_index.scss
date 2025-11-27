@@ -68,7 +68,7 @@
 	}
 
 	.search-menu-toggle,
-	.nav-menu-toggle {
+	.header-menu-toggle {
 		display: flex;
 
 		@include mixins.breakpoint('large') {

@@ -1,18 +1,16 @@
 import { BottomNav } from "./components/layout/BottomNav";
 import { Header } from "./components/layout/Header";
+import { HeroSection } from "./components/layout/sections/HeroSection";
 
 export function App() {
 	return (
 		<>
+			{/* Website navigation */}
 			<Header />
 			<BottomNav />
 
-			<section class="section">
-				<div class="container">
-					<h1>Hello World</h1>
-					<p>Lorem ipsum dolar</p>
-				</div>
-			</section>
+			{/* Page sections */}
+			<HeroSection />
 		</>
 	)
 }

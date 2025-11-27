@@ -13,7 +13,7 @@
 	padding-left: sizing.$size-xs;
 	padding-right: sizing.$size-xs;
 	background-color: colors.$neutral-50;
-	border-top: colors.$neutral-500 1px solid;
+	border-top: colors.$neutral-500 thin solid;
 	@include mixins.shadow-sm;
 
 	@include mixins.breakpoint('small') {

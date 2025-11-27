@@ -1,0 +1,32 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+#hero {
+	padding-top: sizing.$size-lg;
+	padding-bottom: sizing.$size-xl;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-md;
+
+		@include mixins.breakpoint('large') {
+			flex-direction: row;
+		}
+	}
+
+	.hero-banner {
+		@include mixins.breakpoint('large') {
+			flex: 1;
+		}
+	}
+
+	.hero-carousel {
+		flex-basis: 100%;
+
+		@include mixins.breakpoint('large') {
+			flex-basis: functions.quarter-step-up(sizing.$size-md, 29);
+		}
+	}
+}

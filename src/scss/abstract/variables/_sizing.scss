@@ -16,21 +16,51 @@ $eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
 //
 
 
-$size-3xs: calc(1em / round(pow($full-step, 4), 0.001));
-$size-2xs: calc(1em / round(pow($full-step, 3), 0.001));
-$size-xs: calc(1em / round(pow($full-step, 2), 0.001));
-$size-sm: calc(1em / $full-step);
+/// Increase a value by one or more full steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of steps to increase by
+@function full-step-up($value: 1em, $steps: 1) {
+	@return calc($value * round(pow($full-step, $steps), 0.001));
+}
+
+/// Decrease a value by one or more full steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of steps to decrease by
+@function full-step-down($value: 1em, $steps: 1) {
+	@return calc($value / round(pow($full-step, $steps), 0.001));
+}
+
+$size-3xs: full-step-down(1em, 4);
+$size-2xs: full-step-down(1em, 3);
+$size-xs: full-step-down(1em, 2);
+$size-sm: full-step-down(1em, 1);
 $size-md: 1em;
-$size-lg: calc(1em * $full-step);
-$size-xl: calc(1em * round(pow($full-step, 2), 0.001));
-$size-2xl: calc(1em * round(pow($full-step, 3), 0.001));
-$size-3xl: calc(1em * round(pow($full-step, 4), 0.001));
-$size-4xl: calc(1em * round(pow($full-step, 5), 0.001));
-$size-5xl: calc(1em * round(pow($full-step, 6), 0.001));
-$size-6xl: calc(1em * round(pow($full-step, 7), 0.001));
-$size-7xl: calc(1em * round(pow($full-step, 8), 0.001));
-$size-8xl: calc(1em * round(pow($full-step, 9), 0.001));
-$size-9xl: calc(1em * round(pow($full-step, 10), 0.001));
+$size-lg: full-step-up(1em, 1);
+$size-xl: full-step-up(1em, 2);
+$size-2xl: full-step-up(1em, 3);
+$size-3xl: full-step-up(1em, 4);
+$size-4xl: full-step-up(1em, 5);
+$size-5xl: full-step-up(1em, 6);
+$size-6xl: full-step-up(1em, 7);
+$size-7xl: full-step-up(1em, 8);
+$size-8xl: full-step-up(1em, 9);
+$size-9xl: full-step-up(1em, 10);
+
+$root-3xs: full-step-down(1rem, 4);
+$root-2xs: full-step-down(1rem, 3);
+$root-xs: full-step-down(1rem, 2);
+$root-sm: full-step-down(1rem, 1);
+$root-md: 1rem;
+$root-lg: full-step-up(1rem, 1);
+$root-xl: full-step-up(1rem, 2);
+$root-2xl: full-step-up(1rem, 3);
+$root-3xl: full-step-up(1rem, 4);
+$root-4xl: full-step-up(1rem, 5);
+$root-5xl: full-step-up(1rem, 6);
+$root-6xl: full-step-up(1rem, 7);
+$root-7xl: full-step-up(1rem, 8);
+$root-8xl: full-step-up(1rem, 9);
+$root-9xl: full-step-up(1rem, 10);
 
 
 //

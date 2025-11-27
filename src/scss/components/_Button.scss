@@ -1,0 +1,286 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/variables/animations';
+@use '/src/scss/abstract/mixins';
+@use '/src/scss/abstract/functions';
+
+/// Base button styles
+@mixin base {
+	.button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: sizing.$root-sm;
+		padding-left: sizing.$root-sm;
+		padding-right: sizing.$root-sm;
+		padding-top: sizing.$root-xs;
+		padding-bottom: sizing.$root-xs;
+		border-radius: sizing.$root-2xs;
+		background: unset;
+		color: unset;
+		border-color: transparent;
+		border-width: thin;
+		border-style: solid;
+	}
+
+	.button,
+	.button * {
+		font-family: fonts.$display;
+		@include mixins.transition-colors;
+	}
+
+	.button:hover {
+		cursor: pointer;
+	}
+
+	.button.button-animate-icon .icon {
+		@include mixins.transition-transform;
+	}
+
+	.button.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-xs);
+	}
+}
+
+
+//
+// Button Sizes 
+//
+
+
+/// Large button styles
+@mixin size-lg($selector: ".button-lg") {
+	.button#{$selector} {
+		padding-left: sizing.$root-md;
+		padding-right: sizing.$root-md;
+		padding-top: sizing.$root-sm;
+		padding-bottom: sizing.$root-sm;
+		@include mixins.text-heading;
+	}
+
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-sm);
+	}
+}
+
+/// Extra large button styles
+@mixin size-xl($selector: ".button-xl") {
+	.button#{$selector} {
+		padding-left: sizing.$root-lg;
+		padding-right: sizing.$root-lg;
+		padding-top: sizing.$root-sm;
+		padding-bottom: sizing.$root-sm;
+		@include mixins.text-title-3;
+	}
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-sm);
+	}
+}
+
+/// Extra Extra large button styles
+@mixin size-2xl($selector: ".button-2xl") {
+	.button#{$selector} {
+		padding-left: sizing.$root-xl;
+		padding-right: sizing.$root-xl;
+		padding-top: sizing.$root-md;
+		padding-bottom: sizing.$root-md;
+		@include mixins.text-title-2;
+	}
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-md);
+	}
+}
+
+
+/// Neutral button styles
+@mixin neutral($selector: ".button-neutral") {
+	.button#{$selector} {
+		background-color: colors.$neutral-200;
+		color: colors.$on-background;
+		border-color: colors.$neutral-400;
+		font-weight: bold;
+	}
+
+	.button.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$neutral-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-300;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-200;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$neutral-400;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$neutral-300;
+	}
+}
+
+
+/// Light button styles
+@mixin light($selector: ".button-light") {
+	.button#{$selector} {
+		background-color: colors.$white;
+		color: colors.$on-background;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-200;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$neutral-300;
+	}
+}
+
+
+/// Primary button styles
+@mixin primary($selector: ".button-primary") {
+	.button#{$selector} {
+		background-color: colors.$primary-400;
+		color: colors.$on-background;
+		border-color: colors.$primary-600;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$primary-500;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$primary-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$primary-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$primary-600;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$primary-200;
+	}
+}
+
+
+/// Secondary button styles
+@mixin secondary($selector: ".button-secondary") {
+	.button#{$selector} {
+		background-color: colors.$secondary-400;
+		color: colors.$on-background;
+		border-color: colors.$secondary-700;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$secondary-600;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$secondary-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$secondary-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$secondary-700;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$secondary-200;
+	}
+}
+
+
+/// Accent button styles
+@mixin accent($selector: ".button-accent") {
+	.button#{$selector} {
+		background-color: colors.$accent-600;
+		color: colors.$on-background;
+		border-color: colors.$accent-800;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$accent-700;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$accent-700;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$accent-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$accent-800;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$accent-200;
+	}
+}
+
+@include base;
+@include size-lg;
+@include size-xl;
+@include size-2xl;
+@include neutral;
+@include light;
+@include primary;
+@include secondary;
+@include accent;

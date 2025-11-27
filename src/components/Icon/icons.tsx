@@ -3,6 +3,7 @@ import type { FunctionComponent, JSX } from "preact"
 // Icon asset imports
 import CaretUpSolid from "@/assets/icons/caret-up-solid.svg?react"
 import CaretDownSolid from "@/assets/icons/caret-down-solid.svg?react"
+import ArrowRight from "@/assets/icons/arrow-right.svg?react"
 import MagnifyingGlassSolid from "@/assets/icons/magnifying-glass-solid.svg?react"
 import GiftSolid from "@/assets/icons/gift-solid.svg?react"
 import LockSolid from "@/assets/icons/lock-solid.svg?react"
@@ -18,6 +19,7 @@ export type IconMap = Record<string, IconComponent>
 const icons = {
 	"caret-up-solid": CaretUpSolid,
 	"caret-down-solid": CaretDownSolid,
+	"arrow-right": ArrowRight,
 	"magnifying-glass-solid": MagnifyingGlassSolid,
 	"gift-solid": GiftSolid,
 	"lock-solid": LockSolid,

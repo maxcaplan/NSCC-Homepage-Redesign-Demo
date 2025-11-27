@@ -1,0 +1,8 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+.hero-carousel {
+	display: flex;
+}
