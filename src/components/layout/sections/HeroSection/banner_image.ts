@@ -1,27 +1,31 @@
 import type { ImageProps } from "@/components/Image"
 
+import banner_large from "/images/banner/banner-large.jpg"
+import banner_medium from "/images/banner/banner-medium.jpg"
+import banner_small from "/images/banner/banner-small.jpg"
+
 export const banner_image: ImageProps = {
 	sources: [
 		{
-			srcset: "/images/banner/banner-large.jpg",
+			srcset: banner_large,
 			media: "large",
 			width: 947,
 			height: 364,
 		},
 		{
-			srcset: "/images/banner/banner-medium.jpg",
+			srcset: banner_medium,
 			media: "medium",
 			width: 1275,
 			height: 490,
 		},
 		{
-			srcset: "/images/banner/banner-small.jpg",
+			srcset: banner_small,
 			media: "small",
 			width: 490,
 			height: 490
 		}
 	],
-	src: "/images/banner/banner-medium.jpg",
+	src: banner_small,
 	width: 1275,
 	height: 490
 }
