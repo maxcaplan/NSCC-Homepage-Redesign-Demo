@@ -34,7 +34,7 @@
 }
 
 /* purgecss ignore */
-.search-menu-toggle[aria-checked="true"] {
+.search-menu-toggle[aria-expanded="true"] {
 	background-color: colors.$primary-600;
 	border: none;
 	outline: colors.$primary-200 2px solid;

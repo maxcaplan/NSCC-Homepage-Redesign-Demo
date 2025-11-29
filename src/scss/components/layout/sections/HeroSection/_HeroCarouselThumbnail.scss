@@ -1,0 +1,54 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/animations';
+@use '/src/scss/abstract/mixins';
+@use '/src/scss/abstract/functions';
+@use 'sass:list';
+
+.hero-carousel-thumbnail {
+	position: relative;
+	overflow: none;
+	width: sizing.$size-xl;
+	height: sizing.$size-lg;
+
+	@include mixins.breakpoint('small') {
+		width: sizing.$size-2xl;
+		height: sizing.$size-xl;
+	}
+
+	@include mixins.breakpoint('large') {
+		gap: sizing.$size-md;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.75;
+		border-radius: sizing.$size-2xs;
+		border: colors.$neutral-500 thin solid;
+		outline: colors.$primary-700 0 solid;
+		background-color: colors.$white;
+		@include mixins.transition(list.append(animations.$props-color, opacity));
+	}
+}
+
+.hero-carousel-thumbnail:hover {
+	cursor: pointer;
+
+	img {
+		opacity: 1;
+	}
+}
+
+.hero-carousel-thumbnail.active {
+	img {
+		border-color: transparent;
+		outline-color: colors.$primary-400;
+		outline-width: sizing.$size-3xs;
+		border-color: transparent;
+		border-width: sizing.$size-2xs;
+
+		opacity: 1;
+	}
+}

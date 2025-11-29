@@ -104,14 +104,35 @@
 //
 
 
-@mixin transition-colors($duration: animations.$transition-fast) {
-	transition-property: color, background-color, border, outline;
+@mixin transition($props, $duration: animations.$transition-fast) {
+	transition-property: $props;
 	transition-duration: $duration;
 	transition-timing-function: animations.$transition-timing;
 }
 
+@mixin transition-colors($duration: animations.$transition-fast) {
+	@include transition(animations.$props-color, $duration);
+}
+
 @mixin transition-transform($duration: animations.$transition-fast) {
-	transition-property: transform;
-	transition-duration: $duration;
-	transition-timing-function: animations.$transition-timing;
+	@include transition(animations.$props-transform, $duration);
+}
+
+
+//
+// Accessibility mixins
+//
+
+
+@mixin visually-hidden() {
+	position: absolute;
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
 }

@@ -9,6 +9,8 @@ interface TopNavLinkProps {
 	label?: string;
 	/** Active state of navigation */
 	active?: boolean;
+	/** id attribute value for anchor element */
+	id?: string;
 	/** Component children */
 	children?: ComponentChildren
 }
@@ -19,6 +21,7 @@ export function TopNavLink(props: TopNavLinkProps) {
 		<a
 			href={props.href}
 			aria-label={props.label}
+			id={props.id}
 			class={append_classes("top-nav-link", props.active ? "active" : undefined)}
 		>
 			{props.children}

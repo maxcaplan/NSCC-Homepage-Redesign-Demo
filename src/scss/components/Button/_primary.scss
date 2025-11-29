@@ -1,0 +1,42 @@
+@use '/src/scss/abstract/variables/colors';
+
+/// Primary button styles
+@mixin primary($selector: ".button-primary") {
+	.button#{$selector} {
+		background-color: colors.$primary-400;
+		color: colors.$on-background;
+		border-color: colors.$primary-600;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$primary-500;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$primary-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$primary-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$primary-600;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$primary-200;
+	}
+}
+
+@include primary;

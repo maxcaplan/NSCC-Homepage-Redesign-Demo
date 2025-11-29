@@ -1,0 +1,42 @@
+@use '/src/scss/abstract/variables/colors';
+
+/// Accent button styles
+@mixin accent($selector: ".button-accent") {
+	.button#{$selector} {
+		background-color: colors.$accent-600;
+		color: colors.$on-background;
+		border-color: colors.$accent-800;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$accent-700;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$accent-700;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$accent-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$accent-800;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$accent-200;
+	}
+}
+
+@include accent;

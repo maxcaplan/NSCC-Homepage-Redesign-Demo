@@ -1,6 +1,6 @@
-import "@/scss/components/_Button.scss"
+import "@/scss/components/Button/_index.scss"
 import { append_classes } from "@/util/classes";
-import type { AriaRole, ComponentChildren, MouseEventHandler } from "preact";
+import type { ComponentChildren, MouseEventHandler } from "preact";
 
 export type ButtonColor = "neutral" | "light" | "primary" | "secondary" | "accent"
 export type ButtonStyle = "solid" | "outline"
@@ -17,10 +17,8 @@ interface ButtonProps {
 	"animate-icon"?: boolean;
 	/** Button element label */
 	label?: string;
-	/** Button element role */
-	role?: AriaRole;
-	/** Button element checked. For button acting as a switch */
-	checked?: boolean;
+	/** Button element pressed state. For button acting as a toggle */
+	pressed?: boolean | "mixed";
 	/** id attribute value for button element */
 	id?: string;
 	/** class attribute value for button element */
@@ -78,9 +76,8 @@ export function Button(props: ButtonProps) {
 
 	return (
 		<button
-			role={props.role}
 			aria-label={props.label}
-			aria-checked={props.checked}
+			aria-pressed={props.pressed}
 			id={props.id}
 			class={append_classes(
 				"button",

@@ -1,18 +1,58 @@
 @use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/mixins';
+@use '/src/scss/abstract/functions';
 
 /**
  * Set root font size
  */
 :root {
-  font-size: 1rem;
+	font-size: 1rem;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 /**
  * Set base colors
  */
 body {
-  background-color: colors.$background;
-  color: colors.$on-background;
+	background-color: colors.$background;
+	color: colors.$on-background;
+}
+
+/**
+ * App container styles
+ */
+#app {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	padding-bottom: functions.half-step-up(sizing.$size-md, 5);
+
+	@include mixins.breakpoint('large') {
+		padding-bottom: unset;
+	}
+}
+
+main {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: fit-content;
+}
+
+/**
+ * Offset scroll to targets to account for page header
+ */
+[id],
+:target,
+*:focus,
+*:focus-visible {
+	scroll-margin-top: functions.half-step-up(sizing.$size-md, 9);
 }
 
 /**
@@ -23,16 +63,16 @@ body {
 ::before,
 ::backdrop,
 ::file-selector-button {
-  margin: 0;
-  padding: 0;
-  border: 0 solid;
+	margin: 0;
+	padding: 0;
+	border: 0 solid;
 }
 
 /**
  * Remove default link styles
  */
 a {
-  color: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
+	color: inherit;
+	-webkit-text-decoration: inherit;
+	text-decoration: inherit;
 }

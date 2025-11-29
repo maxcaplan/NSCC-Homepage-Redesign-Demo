@@ -1,0 +1,99 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/mixins';
+
+@forward './neutral';
+@forward './light';
+@forward './primary';
+@forward './secondary';
+@forward './accent';
+
+/// Base button styles
+@mixin base {
+	.button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: sizing.$root-sm;
+		padding-left: sizing.$root-sm;
+		padding-right: sizing.$root-sm;
+		padding-top: sizing.$root-xs;
+		padding-bottom: sizing.$root-xs;
+		border-radius: sizing.$root-2xs;
+		background: unset;
+		color: unset;
+		border-color: transparent;
+		border-width: thin;
+		border-style: solid;
+	}
+
+	.button,
+	.button * {
+		font-family: fonts.$display;
+		@include mixins.transition-colors;
+	}
+
+	.button:hover {
+		cursor: pointer;
+	}
+
+	.button.button-animate-icon .icon {
+		@include mixins.transition-transform;
+	}
+
+	.button.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-xs);
+	}
+}
+
+/// Large button styles
+@mixin size-lg($selector: ".button-lg") {
+	.button#{$selector} {
+		padding-left: sizing.$root-md;
+		padding-right: sizing.$root-md;
+		padding-top: sizing.$root-sm;
+		padding-bottom: sizing.$root-sm;
+		@include mixins.text-heading;
+	}
+
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-sm);
+	}
+}
+
+/// Extra large button styles
+@mixin size-xl($selector: ".button-xl") {
+	.button#{$selector} {
+		padding-left: sizing.$root-lg;
+		padding-right: sizing.$root-lg;
+		padding-top: sizing.$root-sm;
+		padding-bottom: sizing.$root-sm;
+		@include mixins.text-title-3;
+	}
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-sm);
+	}
+}
+
+/// Extra Extra large button styles
+@mixin size-2xl($selector: ".button-2xl") {
+	.button#{$selector} {
+		padding-left: sizing.$root-xl;
+		padding-right: sizing.$root-xl;
+		padding-top: sizing.$root-md;
+		padding-bottom: sizing.$root-md;
+		@include mixins.text-title-2;
+	}
+
+	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+		transform: translateX(sizing.$root-md);
+	}
+}
+
+@include base;
+@include size-lg;
+@include size-xl;
+@include size-2xl;

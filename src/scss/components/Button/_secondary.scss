@@ -1,0 +1,42 @@
+@use '/src/scss/abstract/variables/colors';
+
+/// Secondary button styles
+@mixin secondary($selector: ".button-secondary") {
+	.button#{$selector} {
+		background-color: colors.$secondary-400;
+		color: colors.$on-background;
+		border-color: colors.$secondary-700;
+		font-weight: bold;
+	}
+
+	.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$secondary-600;
+		font-weight: bold;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$secondary-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$secondary-100;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$secondary-700;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$secondary-200;
+	}
+}
+
+@include secondary;

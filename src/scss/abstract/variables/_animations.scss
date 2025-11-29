@@ -3,3 +3,19 @@ $transition-medium: 300ms;
 $transition-fast: 150ms;
 
 $transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+$props-color: (
+	color,
+	background-color,
+	border-color,
+	border-width,
+	outline-color,
+	outline-width,
+);
+$props-transform: (
+	transform
+);
+$props-border: (
+	border-color,
+	border-width
+);

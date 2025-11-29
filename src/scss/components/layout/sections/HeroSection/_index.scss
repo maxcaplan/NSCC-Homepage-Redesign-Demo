@@ -2,28 +2,38 @@
 @use "/src/scss/abstract/mixins";
 @use "/src/scss/abstract/functions";
 
-#hero {
+#hero-section {
 	padding-top: sizing.$size-lg;
 	padding-bottom: sizing.$size-xl;
 
 	.container {
+		position: relative;
 		display: flex;
 		flex-direction: column;
-		gap: sizing.$size-md;
+		gap: sizing.$size-lg;
 
 		@include mixins.breakpoint('large') {
 			flex-direction: row;
+			gap: sizing.$size-md;
 		}
 	}
 
 	.hero-banner {
+		flex-basis: functions.quarter-step-up(sizing.$size-md, 28);
+
+		@include mixins.breakpoint('small') {
+			flex-basis: functions.half-step-up(sizing.$size-md, 13);
+		}
+
 		@include mixins.breakpoint('large') {
-			flex: 1;
+			align-self: stretch;
+			flex-grow: 1;
 		}
 	}
 
 	.hero-carousel {
 		flex-basis: 100%;
+		align-self: stretch;
 
 		@include mixins.breakpoint('large') {
 			flex-basis: functions.quarter-step-up(sizing.$size-md, 29);

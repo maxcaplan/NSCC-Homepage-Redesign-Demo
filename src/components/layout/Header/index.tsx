@@ -30,6 +30,19 @@ export function Header() {
 		<header class="header">
 			<div class="header-top">
 				<div class="container">
+					<a class="header-skip-to" href="#hero-section">
+						Skip to main content
+					</a>
+					<a class="header-skip-to" href="#main-navigation">
+						Skip to main site navigation
+					</a>
+					<a class="header-skip-to" href="#utility-navigation">
+						Skip to site utility navigation
+					</a>
+					<a class="header-skip-to" href="#footer">
+						Skip to site footer
+					</a>
+
 					<Logo
 						label="Scroll to top"
 					/>
@@ -51,7 +64,7 @@ export function Header() {
 
 			<div class="header-bottom">
 				<div class="container">
-					<div class="primary-navigation">
+					<div id="main-navigation" class="primary-navigation">
 						<TopNavLink
 							href="#"
 							label="Scroll to top"
@@ -101,7 +114,7 @@ export function Header() {
 						</TopNavMenuToggle>
 					</div>
 
-					<div class="secondary-navigation">
+					<div id="utility-navigation" class="secondary-navigation">
 						<TopNavLink
 							href="#"
 							label="Donate"

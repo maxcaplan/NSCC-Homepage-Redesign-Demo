@@ -1,0 +1,140 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/fonts';
+
+
+/**
+ * Default text styles
+ */
+
+
+* {
+	font-family: fonts.$regular;
+}
+
+h1 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-display-1;
+	line-height: sizing.$line-height-display-1;
+}
+
+h2 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-display-2;
+	line-height: sizing.$line-height-display-2;
+}
+
+h3 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-title-1;
+	line-height: sizing.$line-height-title-1;
+}
+
+h4 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-title-2;
+	line-height: sizing.$line-height-title-2;
+}
+
+h5 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-title-3;
+	line-height: sizing.$line-height-title-3;
+}
+
+h6 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-heading;
+	line-height: sizing.$line-height-heading;
+}
+
+h6 {
+	font-family: fonts.$display;
+	font-size: sizing.$size-subheading;
+	line-height: sizing.$line-height-subheading;
+}
+
+p,
+input {
+	font-family: fonts.$regular;
+	font-size: sizing.$size-body;
+	line-height: sizing.$line-height-body;
+}
+
+label {
+	font-family: fonts.$regular;
+	font-size: sizing.$size-label;
+	line-height: sizing.$line-height-label;
+}
+
+
+/**
+ * Text sizing styles
+ */
+
+
+.text-display-1 {
+	font-size: sizing.$size-display-1;
+	line-height: sizing.$line-height-display-1;
+}
+
+.text-display-2 {
+	font-size: sizing.$size-display-2;
+	line-height: sizing.$line-height-display-2;
+}
+
+.text-title-1 {
+	font-size: sizing.$size-title-1;
+	line-height: sizing.$line-height-title-1;
+}
+
+.text-title-2 {
+	font-size: sizing.$size-title-2;
+	line-height: sizing.$line-height-title-2;
+}
+
+.text-title-3 {
+	font-size: sizing.$size-title-3;
+	line-height: sizing.$line-height-title-3;
+}
+
+.text-heading {
+	font-size: sizing.$size-heading;
+	line-height: sizing.$line-height-heading;
+}
+
+.text-subheading {
+	font-size: sizing.$size-subheading;
+	line-height: sizing.$line-height-subheading;
+}
+
+.text-body {
+	font-size: sizing.$size-body;
+	line-height: sizing.$line-height-body;
+}
+
+.text-label {
+	font-size: sizing.$size-label;
+	line-height: sizing.$line-height-label;
+}
+
+
+/**
+ * Font styles
+ */
+
+
+.font-regular {
+	font-family: fonts.$regular;
+}
+
+.font-display {
+	font-family: fonts.$display;
+}
+
+.font-bold {
+	font-weight: bold;
+}
+
+.font-italic {
+	font-style: italic;
+}

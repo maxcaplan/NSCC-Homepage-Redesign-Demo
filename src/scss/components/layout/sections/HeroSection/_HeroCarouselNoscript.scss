@@ -1,0 +1,14 @@
+@use '/src/scss/abstract/variables/sizing';
+
+.carousel-body {
+	padding-bottom: sizing.$size-xs;
+}
+
+.carousel-viewport {
+	scrollbar-width: auto;
+	padding-bottom: sizing.$size-xs;
+}
+
+.carousel-footer {
+	display: none;
+}

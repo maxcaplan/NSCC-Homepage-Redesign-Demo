@@ -5,11 +5,14 @@
 
 .header {
 	position: sticky;
+	top: 0;
+	z-index: 5;
 	width: 100%;
 	color: colors.$white;
 	@include mixins.shadow-sm;
 
 	.header-top {
+		position: relative;
 		width: 100%;
 		padding-left: sizing.$size-sm;
 		padding-right: sizing.$size-sm;
@@ -31,8 +34,27 @@
 	}
 
 	.header-top .container {
+		position: relative;
 		display: flex;
 		flex-direction: row;
+	}
+
+	.header-skip-to {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+		padding-top: sizing.$size-md;
+		padding-bottom: sizing.$size-md;
+		background-color: colors.$primary-600;
+		color: colors.$white;
+		text-decoration: underline;
+	}
+
+	.header-skip-to:not(:focus-visible) {
+		@include mixins.visually-hidden;
 	}
 
 	.logo-container .logo {

@@ -11,6 +11,8 @@ export interface BottomNavMenuToggleProps {
 	"active-icon"?: IconKeys;
 	/** Label for button element */
 	label?: string;
+	/** Id of the menu this toggle controls */
+	controls?: string;
 	/** Active state of navigation */
 	active?: boolean;
 	/** Open state of the menu toggle */
@@ -25,9 +27,10 @@ export interface BottomNavMenuToggleProps {
 export function BottomNavMenuToggle(props: BottomNavMenuToggleProps) {
 	return (
 		<button
-			role="switch"
 			aria-label={props.label}
-			aria-checked={props.open || false}
+			aria-haspopup="true"
+			aria-controls={props.controls}
+			aria-expanded={props.open || false}
 			class={append_classes("bottom-nav-menu-toggle", props.active ? "active" : undefined)}
 			onClick={props.onClick}
 		>

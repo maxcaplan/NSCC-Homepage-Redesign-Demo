@@ -1,0 +1,41 @@
+@use '/src/scss/abstract/variables/colors';
+
+/// Neutral button styles
+@mixin neutral($selector: ".button-neutral") {
+	.button#{$selector} {
+		background-color: colors.$neutral-200;
+		color: colors.$on-background;
+		border-color: colors.$neutral-400;
+		font-weight: bold;
+	}
+
+	.button.button#{$selector}.button-outline {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$neutral-500;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-300;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-200;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$neutral-400;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
+	.button#{$selector}.button-outline[aria-checked=true] {
+		background-color: colors.$neutral-300;
+	}
+}
+
+@include neutral;

@@ -52,7 +52,7 @@
 }
 
 /** purgecss ignore */
-.bottom-nav-menu-toggle:not([aria-checked=true]) {
+.bottom-nav-menu-toggle:not([aria-expanded=true]) {
 	.open-icon {
 		display: block;
 	}
@@ -63,35 +63,35 @@
 }
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle:not([aria-checked="true"]):hover .link-body {
+.bottom-nav-menu-toggle:not([aria-expanded="true"]):hover .link-body {
 	outline: colors.$primary-200 2px solid;
 }
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle[aria-checked="true"] .link-body {
+.bottom-nav-menu-toggle[aria-expanded="true"] .link-body {
 	background-color: colors.$primary-100;
 	color: colors.$primary-600;
 	font-weight: 700;
 }
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle[aria-checked="true"] .icon {
+.bottom-nav-menu-toggle[aria-expanded="true"] .icon {
 	color: colors.$primary-600;
 }
 
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle[aria-checked="true"] .open-icon {
+.bottom-nav-menu-toggle[aria-expanded="true"] .open-icon {
 	display: none;
 }
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle[aria-checked="true"] .close-icon {
+.bottom-nav-menu-toggle[aria-expanded="true"] .close-icon {
 	display: block;
 }
 
 /* purgecss ignore */
-.bottom-nav-menu-toggle:not([aria-checked=true]).active {
+.bottom-nav-menu-toggle:not([aria-expanded=true]).active {
 	.link-body {
 		color: colors.$primary-600;
 		font-weight: 700;

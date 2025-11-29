@@ -8,6 +8,8 @@ interface TopNavMenuToggleProps {
 	label?: string;
 	/** Open state of navigation */
 	open?: boolean;
+	/** Id of the menu this toggle controls */
+	controls?: string;
 	/** Active state of navigation */
 	active?: boolean;
 	/** onClick event handler for button element */
@@ -20,10 +22,10 @@ interface TopNavMenuToggleProps {
 export function TopNavMenuToggle(props: TopNavMenuToggleProps) {
 	return (
 		<button
-			type="button"
-			role="switch"
 			aria-label={props.label}
-			aria-checked={props.open || false}
+			aria-haspopup="true"
+			aria-controls={props.controls}
+			aria-expanded={props.open || false}
 			class={append_classes("top-nav-mega-menu-toggle", props.active ? "active" : undefined)}
 			onClick={props.onClick}
 		>

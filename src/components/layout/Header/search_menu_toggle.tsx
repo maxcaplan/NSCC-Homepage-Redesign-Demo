@@ -5,6 +5,8 @@ import type { MouseEventHandler } from "preact";
 interface SearchMenuButtonProps {
 	/** Open state of navigation */
 	open?: boolean;
+	/** Id of the menu this toggle controls */
+	controls?: string;
 	/** onClick event handler for button element */
 	onClick?: MouseEventHandler<HTMLButtonElement>
 }
@@ -13,8 +15,9 @@ interface SearchMenuButtonProps {
 export function SearchMenuToggle(props: SearchMenuButtonProps) {
 	return (
 		<button
-			role="switch"
-			aria-checked={props.open || false}
+			aria-haspopup="true"
+			aria-controls={props.controls}
+			aria-expanded={props.open || false}
 			aria-label="Toggle search box menu"
 			class="search-menu-toggle"
 			onClick={props.onClick}

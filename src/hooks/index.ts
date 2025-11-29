@@ -1,0 +1,1 @@
+export { useNoscriptStyles } from "./noscript";

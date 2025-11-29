@@ -1,6 +1,9 @@
 @use '/src/scss/abstract/variables/sizing';
 @use '/src/scss/abstract/mixins';
 
+/**
+ * Layout component for page section
+ */
 .section {
 	display: flex;
 	align-items: center;
@@ -16,9 +19,17 @@
 }
 
 /**
- * Layout component for maxiumum width
+ * Layout component for maxiumum content width
  */
 .container {
 	width: 100%;
 	max-width: sizing.$size-container;
+}
+
+/**
+ * Layout component for visually hidding an element while keeping it available 
+ * to assistive technologies
+ */
+.visually-hidden {
+	@include mixins.visually-hidden;
 }

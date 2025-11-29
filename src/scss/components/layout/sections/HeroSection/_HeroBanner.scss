@@ -8,20 +8,10 @@
 .hero-banner {
 	position: relative;
 	width: 100%;
-	flex-basis: functions.quarter-step-up(sizing.$size-md, 28);
 	border-radius: sizing.$size-2xs;
 	border: colors.$neutral-500 thin solid;
 	color: colors.$white;
 	@include mixins.shadow-sm;
-
-	@include mixins.breakpoint('small') {
-		flex-basis: functions.half-step-up(sizing.$size-md, 13);
-	}
-
-	@include mixins.breakpoint('large') {
-		height: unset;
-		min-height: functions.half-step-up(sizing.$size-md, 13);
-	}
 }
 
 .hero-banner-image-wrapper {
@@ -33,6 +23,7 @@
 	z-index: -1;
 	width: 100%;
 	height: 100%;
+	background-color: colors.$neutral-400;
 }
 
 .hero-banner-image-wrapper::after {

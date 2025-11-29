@@ -16,9 +16,15 @@
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@preact/preset-vite": "^2.10.2",
     "@types/node": "^24.10.1",
+    "autoprefixer": "^10.4.22",
+    "lightningcss": "^1.30.2",
+    "preact-iso": "^2.11.0",
     "sass-embedded": "^1.93.3",
+    "sharp": "^0.34.5",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
-    "vite-plugin-svgr": "^4.5.0"
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-svgr": "^4.5.0",
+    "vite-prerender-plugin": "^0.5.12"
   }
 }

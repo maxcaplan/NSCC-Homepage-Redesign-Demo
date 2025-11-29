@@ -36,7 +36,7 @@
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle:not([aria-checked="true"]):hover {
+.top-nav-mega-menu-toggle:not([aria-expanded="true"]):hover {
 	background-color: colors.$primary-500;
 
 	.open-icon {
@@ -45,13 +45,13 @@
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle:not([aria-checked="true"]).active {
+.top-nav-mega-menu-toggle:not([aria-expanded="true"]).active {
 	background-color: colors.$primary-800;
 	font-weight: 700;
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle[aria-checked="true"] {
+.top-nav-mega-menu-toggle[aria-expanded="true"] {
 	background-color: colors.$white;
 	color: colors.$primary-700;
 	font-weight: 700;
@@ -62,18 +62,18 @@
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle[aria-checked="false"] {
+.top-nav-mega-menu-toggle[aria-expanded="false"] {
 	.icon:not(.open-icon):not(.close-icon) {
 		color: colors.$accent-500;
 	}
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle[aria-checked="true"] .open-icon {
+.top-nav-mega-menu-toggle[aria-expanded="true"] .open-icon {
 	display: none;
 }
 
 /* purgecss ignore */
-.top-nav-mega-menu-toggle:not([aria-checked="true"]) .close-icon {
+.top-nav-mega-menu-toggle:not([aria-expanded="true"]) .close-icon {
 	display: none;
 }

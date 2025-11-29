@@ -4,5 +4,122 @@
 @use "/src/scss/abstract/functions";
 
 .hero-carousel {
+	position: relative;
+	overflow: hidden;
 	display: flex;
+	flex-direction: column;
+	border-radius: sizing.$size-2xs;
+	border: colors.$neutral-500 thin solid;
+	@include mixins.shadow-sm;
+}
+
+.carousel-skip-contents:not(:focus-visible) {
+	@include mixins.visually-hidden;
+}
+
+.carousel-skip-contents:focus-visible {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	padding-left: sizing.$size-md;
+	padding-right: sizing.$size-md;
+	padding-top: sizing.$size-md;
+	padding-bottom: sizing.$size-md;
+	text-align: center;
+	background-color: colors.$white;
+	text-decoration: underline;
+}
+
+.carousel-body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	flex-grow: 1;
+}
+
+.carousel-viewport {
+	display: flex;
+	width: 100%;
+	height: fit-content;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+	list-style: none;
+	scrollbar-width: none;
+}
+
+@media(scripting: none) {
+	.carousel-body {
+		padding-bottom: sizing.$size-xs;
+	}
+
+	.carousel-viewport {
+		scrollbar-width: auto;
+		padding-bottom: sizing.$size-xs;
+	}
+
+	.carousel-footer {
+		display: none;
+	}
+}
+
+@media(scripting: initial-only) {
+	.carousel-body {
+		padding-bottom: sizing.$size-xs;
+	}
+
+	.carousel-viewport {
+		scrollbar-width: auto;
+		padding-bottom: sizing.$size-xs;
+	}
+
+	.carousel-footer {
+		display: none;
+	}
+}
+
+.carousel-footer {
+	position: relative;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-top: sizing.$size-xs;
+	padding-bottom: sizing.$size-sm;
+	display: flex;
+	align-items: center;
+
+	.button {
+		padding-top: sizing.$root-sm;
+		padding-bottom: sizing.$root-sm;
+		border-radius: sizing.$root-xl;
+	}
+}
+
+.hero-carousel-skip-controls:not(:focus-visible) {
+	@include mixins.visually-hidden;
+}
+
+.hero-carousel-skip-controls:focus-visible {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: colors.$white;
+	text-decoration: underline;
+}
+
+.carousel-thumbnails {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-grow: 1;
+	align-items: center;
+	gap: sizing.$size-md;
 }

@@ -22,7 +22,7 @@ export interface ImageSource {
 	height?: string | number;
 }
 
-interface ImageProps {
+export interface ImageProps {
 	/** src attribute value of img tag */
 	src?: string;
 	/** Alternate sources for image */
@@ -53,7 +53,7 @@ export function Image(props: ImageProps) {
 
 		switch (media) {
 			case "small":
-				return "(max-width: 428px)"
+				return "(max-width: 767px)"
 			case "medium":
 				return "(min-width: 768px)"
 			case "large":

@@ -1,0 +1,22 @@
+@use '/src/scss/abstract/variables/colors';
+
+/// Light button styles
+@mixin light($selector: ".button-light") {
+	.button#{$selector} {
+		background-color: colors.$white;
+		color: colors.$on-background;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):hover {
+		background-color: colors.$neutral-200;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-checked="true"]):active,
+	.button#{$selector}[aria-checked=true] {
+		background-color: colors.$neutral-300;
+	}
+}
+
+@include light;

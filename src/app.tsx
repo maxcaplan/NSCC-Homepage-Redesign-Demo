@@ -9,8 +9,10 @@ export function App() {
 			<Header />
 			<BottomNav />
 
-			{/* Page sections */}
-			<HeroSection />
+			<main>
+				{/* Page sections */}
+				<HeroSection />
+			</main>
 		</>
 	)
 }
