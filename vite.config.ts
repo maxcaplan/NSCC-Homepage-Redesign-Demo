@@ -7,8 +7,10 @@ import { fileURLToPath } from 'url'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '')
+	let base = env.APP_BASE || "/"
+
 	return {
-		base: JSON.stringify(env.APP_BASE) || "/",
+		base,
 		plugins: [
 			preact({
 				prerender: {
