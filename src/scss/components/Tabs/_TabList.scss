@@ -1,0 +1,31 @@
+@use "/src/scss/abstract/variables/colors";
+
+.tab-list {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+	align-items: stretch;
+	background-color: colors.$neutral-50;
+	border-bottom: colors.$neutral-500 thin solid;
+
+	.tab {
+		position: relative;
+		top: 1px;
+		z-index: 2;
+		flex: 1;
+		margin-top: -1px;
+		border-left: none;
+		border-right: colors.$neutral-500 thin solid;
+		border-top: none;
+		border-bottom: colors.$neutral-500 thin solid;
+	}
+
+	.tab[aria-selected="true"] {
+		border-bottom-color: colors.$neutral-50;
+	}
+
+	.tab:last-child {
+		border-right: none;
+	}
+}

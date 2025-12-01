@@ -1,0 +1,41 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/fonts";
+@use "/src/scss/abstract/mixins";
+
+.tab {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-top: sizing.$size-xs;
+	padding-bottom: sizing.$size-xs;
+	background-color: colors.$neutral-300;
+	font-family: fonts.$display;
+	font-weight: 700;
+	cursor: pointer;
+	@include mixins.transition-colors;
+
+	@include mixins.breakpoint('small') {
+		padding-left: sizing.$size-md;
+		padding-right: sizing.$size-md;
+		padding-top: sizing.$size-md;
+		padding-bottom: sizing.$size-md;
+		@include mixins.text-heading;
+	}
+}
+
+.tab:hover {
+	background-color: colors.$neutral-200;
+}
+
+.tab[aria-selected="true"] {
+	cursor: unset;
+	background-color: colors.$neutral-50;
+	color: colors.$primary-700;
+}
+
+.tab[aria-selected="true"]:hover {
+	background-color: colors.$neutral-50;
+}

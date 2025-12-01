@@ -1,0 +1,11 @@
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/sizing";
+
+.tabs {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: sizing.$size-2xs;
+	border: colors.$neutral-500 thin solid;
+	background-color: colors.$neutral-50;
+}
