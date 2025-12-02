@@ -5,6 +5,10 @@ import CaretLeftSolid from "@/assets/icons/caret-left-solid.svg?react"
 import CaretRightSolid from "@/assets/icons/caret-right-solid.svg?react"
 import CaretUpSolid from "@/assets/icons/caret-up-solid.svg?react"
 import CaretDownSolid from "@/assets/icons/caret-down-solid.svg?react"
+import ChevronLeft from "@/assets/icons/chevron-left.svg?react"
+import ChevronRight from "@/assets/icons/chevron-right.svg?react"
+import ChevronUp from "@/assets/icons/chevron-up.svg?react"
+import ChevronDown from "@/assets/icons/chevron-down.svg?react"
 import ArrowLeft from "@/assets/icons/arrow-left.svg?react"
 import ArrowRight from "@/assets/icons/arrow-right.svg?react"
 import ArrowUp from "@/assets/icons/arrow-up.svg?react"
@@ -15,6 +19,7 @@ import LockSolid from "@/assets/icons/lock-solid.svg?react"
 import MenuSolid from "@/assets/icons/menu-solid.svg?react"
 import CalendarXSolid from "@/assets/icons/calendar-x-solid.svg?react"
 import BookOpenSolid from "@/assets/icons/book-open-solid.svg?react"
+import InfoCircleSolid from "@/assets/icons/info-circle-solid.svg?react"
 
 export type IconComponent = FunctionComponent<JSX.SVGAttributes<SVGSVGElement> & {
 	title?: string
@@ -26,6 +31,10 @@ const icons = {
 	"caret-right-solid": CaretRightSolid,
 	"caret-up-solid": CaretUpSolid,
 	"caret-down-solid": CaretDownSolid,
+	"chevron-left": ChevronLeft,
+	"chevron-right": ChevronRight,
+	"chevron-up": ChevronUp,
+	"chevron-down": ChevronDown,
 	"arrow-left": ArrowLeft,
 	"arrow-right": ArrowRight,
 	"arrow-up": ArrowUp,
@@ -35,7 +44,8 @@ const icons = {
 	"lock-solid": LockSolid,
 	"menu-solid": MenuSolid,
 	"calendar-x-solid": CalendarXSolid,
-	"book-open-solid": BookOpenSolid
+	"book-open-solid": BookOpenSolid,
+	"info-circle-solid": InfoCircleSolid,
 }
 
 /** Map of icon names to icon svg components */

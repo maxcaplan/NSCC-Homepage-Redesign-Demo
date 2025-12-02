@@ -1,0 +1,86 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/mixins";
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-sm;
+
+	label {
+		font-weight: bold;
+	}
+
+	input,
+	select {
+		flex: 1;
+	}
+}
+
+.select-field {
+	position: relative;
+	z-index: 0;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	border-radius: sizing.$size-2xs;
+	border: colors.$neutral-500 thin solid;
+
+	select {
+		position: relative;
+		z-index: -1;
+		padding-right: sizing.$size-xl;
+		border-radius: 0;
+		border: none;
+		outline: none;
+		text-indent: 1px;
+		text-overflow: '';
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	select::-ms-expand {
+		display: none;
+	}
+
+	select.select-empty {
+		color: colors.$neutral-500;
+	}
+
+	option {
+		color: colors.$neutral-950;
+	}
+
+	.select-button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: -1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: sizing.$size-xl;
+		height: 100%;
+		border-left: colors.$neutral-500 thin solid;
+		background-color: colors.$white;
+		pointer-events: none;
+		@include mixins.transition-colors;
+	}
+}
+
+.select-field:hover,
+.select-field:focus-within {
+	outline: 5px auto Highlight;
+	outline: 5px auto -webkit-focus-ring-color;
+
+	.select-button {
+		background-color: colors.$neutral-100;
+	}
+}
+
+.select-field:has(select:open) {
+	.select-button .icon {
+		transform: rotate(180deg);
+	}
+}

@@ -3,7 +3,10 @@
 @use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 
-input {
+select {
+	display: flex;
+	justify-content: start;
+	align-items: center;
 	padding-left: sizing.$size-sm;
 	padding-right: sizing.$size-sm;
 	padding-top: sizing.$size-xs;
@@ -12,12 +15,7 @@ input {
 	border: colors.$neutral-500 thin solid;
 	background-color: colors.$white;
 	color: colors.$on-background;
-	font-family: fonts.$regular;
-	@include mixins.text-body;
-}
-
-input::placeholder {
-	color: colors.$neutral-500;
+	cursor: pointer;
 	font-family: fonts.$regular;
 	@include mixins.text-body;
 }
