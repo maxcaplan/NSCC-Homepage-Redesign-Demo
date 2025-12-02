@@ -24,7 +24,9 @@
 	}
 
 	.story {
-		flex: 1;
+		@include mixins.breakpoint('large') {
+			flex: 1;
+		}
 	}
 
 	.more-stories-container {

@@ -33,14 +33,16 @@ export function Story(props: StoryProps) {
 			aria-labelledby={title_id}
 			class={append_classes("story", props.class)}
 		>
-			<Image
-				sources={props["image-sources"]}
-				src={props["image-src"]}
-				width={props["image-width"]}
-				height={props["image-height"]}
-				loading="lazy"
-				class="story-image"
-			/>
+			<div class="story-image-container">
+
+				<Image
+					sources={props["image-sources"]}
+					src={props["image-src"]}
+					width={props["image-width"]}
+					height={props["image-height"]}
+					loading="lazy"
+				/>
+			</div>
 
 			<div class="story-container">
 				<a href="#" class="story-header">
