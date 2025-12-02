@@ -42,7 +42,7 @@ export function HeroBanner(props: HeroBannerProps) {
 
 				<div class="hero-banner-buttons">
 					<Button color="accent" animate-icon={true} class="banner-button apply-button">
-						<span>Apply today</span>
+						Apply today
 						<Icon icon="arrow-right" size="md" />
 					</Button>
 					<Button color="neutral" class="banner-button">

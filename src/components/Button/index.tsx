@@ -1,12 +1,12 @@
 import "@/scss/components/Button/_index.scss"
 import { append_classes } from "@/util/classes";
-import type { ComponentChildren, MouseEventHandler } from "preact";
+import type { AnchorHTMLAttributes, AriaRole, ComponentChildren, MouseEventHandler } from "preact";
 
 export type ButtonColor = "neutral" | "light" | "primary" | "secondary" | "accent"
 export type ButtonStyle = "solid" | "outline"
 export type ButtonSize = "md" | "lg" | "xl" | "2xl"
 
-interface ButtonProps {
+interface BaseButtonProps {
 	/** Color off the button */
 	color?: ButtonColor;
 	/** Style off the button. Defaults to "solid" */
@@ -15,22 +15,44 @@ interface ButtonProps {
 	size?: ButtonSize;
 	/** Whether to animate button icon on hover. Defaults to false */
 	"animate-icon"?: boolean;
-	/** Button element label */
+	/** Element label */
 	label?: string;
-	/** Button element pressed state. For button acting as a toggle */
+	/** Element pressed state. For button acting as a toggle */
 	pressed?: boolean | "mixed";
-	/** id attribute value for button element */
+	/** Element id */
 	id?: string;
-	/** class attribute value for button element */
+	/** Element class */
 	class?: string;
-	/** onClick attribute value for button element */
-	onClick?: MouseEventHandler<HTMLButtonElement>
+	/** Element role */
+	role?: AriaRole
 	/** Component children */
 	children?: ComponentChildren
 }
 
+interface ButtonProps extends BaseButtonProps {
+	type?: "button" | "submit" | "reset"
+	/** onClick attribute value for element */
+	onClick?: MouseEventHandler<HTMLButtonElement>
+}
+
+interface LinkButtonProps extends BaseButtonProps {
+	/** Element href */
+	href?: string
+	/** Element target */
+	target?: AnchorHTMLAttributes<HTMLAnchorElement>["target"]
+	/** onClick attribute value for element */
+	onClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+/** Link button props type guard */
+function is_link_button_props(
+	props: ButtonProps | LinkButtonProps
+): props is LinkButtonProps {
+	return Object.hasOwn(props, 'href')
+}
+
 /** Button component */
-export function Button(props: ButtonProps) {
+export function Button(props: ButtonProps | LinkButtonProps) {
 	/** Select color class for button */
 	const color_class = (color?: ButtonColor) => {
 		switch (color) {
@@ -74,22 +96,48 @@ export function Button(props: ButtonProps) {
 		return animate_icon === true ? "button-animate-icon" : undefined
 	}
 
-	return (
-		<button
-			aria-label={props.label}
-			aria-pressed={props.pressed}
-			id={props.id}
-			class={append_classes(
-				"button",
-				color_class(props.color),
-				style_class(props.style),
-				size_class(props.size),
-				animation_class(props["animate-icon"]),
-				props.class
-			)}
-			onClick={props.onClick}
-		>
-			{props.children}
-		</button>
-	)
+	if (is_link_button_props(props)) {
+		return (
+			<a
+				href={props.href}
+				target={props.target}
+				aria-label={props.label}
+				aria-pressed={props.pressed}
+				id={props.id}
+				class={append_classes(
+					"button",
+					color_class(props.color),
+					style_class(props.style),
+					size_class(props.size),
+					animation_class(props["animate-icon"]),
+					props.class
+				)}
+				role={props.role}
+				onClick={props.onClick}
+			>
+				{props.children}
+			</a>
+		)
+	} else {
+		return (
+			<button
+				aria-label={props.label}
+				aria-pressed={props.pressed}
+				id={props.id}
+				class={append_classes(
+					"button",
+					color_class(props.color),
+					style_class(props.style),
+					size_class(props.size),
+					animation_class(props["animate-icon"]),
+					props.class
+				)}
+				role={props.role}
+				type={props.type}
+				onClick={props.onClick}
+			>
+				{props.children}
+			</button>
+		)
+	}
 }

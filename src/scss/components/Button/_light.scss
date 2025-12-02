@@ -1,20 +1,20 @@
 @use '/src/scss/abstract/variables/colors';
 
 /// Light button styles
-@mixin light($selector: ".button-light") {
-	.button#{$selector} {
+@mixin light($selector: ".button.button-light") {
+	#{$selector} {
 		background-color: colors.$white;
 		color: colors.$on-background;
 	}
 
 	/* purgecss ignore */
-	.button#{$selector}:not([aria-checked="true"]):hover {
+	#{$selector}:not([aria-pressed="true"]):hover {
 		background-color: colors.$neutral-200;
 	}
 
 	/* purgecss ignore */
-	.button#{$selector}:not([aria-checked="true"]):active,
-	.button#{$selector}[aria-checked=true] {
+	#{$selector}:not([aria-pressed="true"]):active,
+	#{$selector}[aria-pressed="true"] {
 		background-color: colors.$neutral-300;
 	}
 }

@@ -1,10 +1,11 @@
 @use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
 @use '/src/scss/abstract/mixins';
 
 /**
  * Layout component for page section
  */
-.section {
+.page-section {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -15,6 +16,28 @@
 	@include mixins.breakpoint('small') {
 		padding-left: sizing.$size-md;
 		padding-right: sizing.$size-md;
+	}
+}
+
+/**
+ * Layout component for page section heading
+ */
+.page-section-heading {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-xs;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: colors.$primary-700;
+	}
+
+	p {
+		max-width: sizing.$width-body;
 	}
 }
 
@@ -32,4 +55,8 @@
  */
 .visually-hidden {
 	@include mixins.visually-hidden;
+}
+
+hr {
+	border-bottom: colors.$neutral-500 thin inset;
 }

@@ -1,41 +1,46 @@
 @use '/src/scss/abstract/variables/colors';
 
 /// Neutral button styles
-@mixin neutral($selector: ".button-neutral") {
-	.button#{$selector} {
+@mixin neutral($selector: ".button.button-neutral") {
+	#{$selector} {
 		background-color: colors.$neutral-200;
 		color: colors.$on-background;
 		border-color: colors.$neutral-400;
-		font-weight: bold;
-	}
-
-	.button.button#{$selector}.button-outline {
-		background-color: unset;
-		color: colors.$on-background;
-		border-color: colors.$neutral-500;
+		font-weight: 700;
 	}
 
 	/* purgecss ignore */
-	.button#{$selector}:not([aria-checked="true"]):hover {
+	#{$selector}:not([aria-pressed="true"]):hover {
 		background-color: colors.$neutral-300;
 	}
 
 	/* purgecss ignore */
-	.button#{$selector}.button-outline:not([aria-checked="true"]):hover {
+	#{$selector}:not([aria-pressed="true"]):active,
+	#{$selector}[aria-pressed="true"] {
+		background-color: colors.$neutral-400;
+	}
+}
+
+/// Neutral button outline styles
+@mixin neutral-outline($selector: ".button-neutral.button-outline") {
+	.button#{$selector} {
+		background-color: unset;
+		color: colors.$on-background;
+		border-color: colors.$neutral-500;
+		font-weight: 700;
+	}
+
+	/* purgecss ignore */
+	.button#{$selector}:not([aria-pressed="true"]):hover {
 		background-color: colors.$neutral-200;
 	}
 
 	/* purgecss ignore */
-	.button#{$selector}:not([aria-checked="true"]):active,
-	.button#{$selector}[aria-checked=true] {
-		background-color: colors.$neutral-400;
-	}
-
-	/* purgecss ignore */
-	.button#{$selector}.button-outline:not([aria-checked="true"]):active,
-	.button#{$selector}.button-outline[aria-checked=true] {
+	.button#{$selector}:not([aria-pressed="true"]):active,
+	.button#{$selector}[aria-pressed="true"] {
 		background-color: colors.$neutral-300;
 	}
 }
 
 @include neutral;
+@include neutral-outline;

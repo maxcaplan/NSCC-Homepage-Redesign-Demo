@@ -78,6 +78,9 @@ $size-subheading: calc(1em / $quarter-step);
 $size-body: 1em;
 $size-label: calc(1em / $quarter-step / $eighth-step);
 
+/// Width value for comfortable reading of body text
+$width-body: calc(1em * round(pow($full-step, 7), 0.001) * $quarter-step);
+
 
 //
 // Line height values

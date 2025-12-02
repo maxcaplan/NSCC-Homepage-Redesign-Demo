@@ -9,11 +9,12 @@
 	align-items: center;
 	padding-left: sizing.$size-sm;
 	padding-right: sizing.$size-sm;
-	padding-top: sizing.$size-xs;
-	padding-bottom: sizing.$size-xs;
+	padding-top: sizing.$size-sm;
+	padding-bottom: sizing.$size-sm;
 	background-color: colors.$neutral-300;
 	font-family: fonts.$display;
 	font-weight: 700;
+	text-align: left;
 	cursor: pointer;
 	@include mixins.transition-colors;
 

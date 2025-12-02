@@ -1,0 +1,138 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/fonts";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+@use "/src/scss/components/Button";
+
+#find-a-program-section {
+	padding-top: sizing.$size-2xl;
+	padding-bottom: sizing.$size-2xl;
+	background-color: colors.$neutral-100;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: sizing.$size-xl;
+
+		@include mixins.breakpoint('large') {
+			flex-direction: row;
+			justify-content: center;
+			align-items: start;
+		}
+	}
+
+	.container> :first-child {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-lg;
+		flex: 1;
+		width: 100%;
+
+		@include mixins.breakpoint('large') {
+			max-width: functions.full-step-up($steps: 7);
+		}
+	}
+
+	.container> :last-child {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-lg;
+		flex: 1;
+		width: 100%;
+		max-width: functions.half-step-up($steps: 15);
+	}
+
+	.program-info-card {
+		display: flex;
+
+		@include mixins.breakpoint('large') {
+			display: none;
+		}
+	}
+
+	.program-info-card-large {
+		display: none;
+
+		@include mixins.breakpoint('large') {
+			display: flex;
+		}
+	}
+
+	.tabs {
+		@include mixins.shadow-sm;
+	}
+
+	.tab-panel:not(.hidden) {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-lg;
+		padding-left: sizing.$size-sm;
+		padding-right: sizing.$size-sm;
+		padding-top: sizing.$size-md;
+		padding-bottom: sizing.$size-md;
+	}
+
+	.panel-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-sm;
+
+		@include Button.secondary-outline(".button-secondary");
+
+		@include mixins.breakpoint('medium') {
+			flex-direction: row;
+
+			@include Button.secondary(".button-secondary")
+		}
+	}
+
+	.button {
+		display: flex;
+		flex: 1;
+		justify-content: space-between;
+	}
+
+	.button.button-light {
+		justify-content: center;
+		background-color: colors.$neutral-50;
+	}
+
+	.panel-form {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-md;
+	}
+
+	.panel-form-header {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-xs;
+
+		h3 {
+			font-family: fonts.$display;
+			font-weight: 700;
+			@include mixins.text-heading;
+		}
+	}
+
+	.panel-form-footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		gap: sizing.$size-sm;
+
+		@include mixins.breakpoint('small') {
+			justify-content: start;
+
+			.button {
+				flex: unset;
+			}
+		}
+	}
+}
+
+#find-a-program {
+	@include mixins.text-title-1;
+}

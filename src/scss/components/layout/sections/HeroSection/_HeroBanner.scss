@@ -88,7 +88,7 @@
 .hero-banner-paragraph {
 	margin-top: sizing.$size-xs;
 	margin-bottom: sizing.$size-lg;
-	max-width: 34em;
+	max-width: sizing.$width-body;
 
 	@include mixins.breakpoint('small') {
 		margin-top: sizing.$size-xs;
@@ -126,20 +126,10 @@
 	}
 
 	.button {
-		justify-content: start;
+		justify-content: space-between;
 
 		@include mixins.breakpoint('small') {
 			justify-content: center;
-		}
-	}
-
-	.button span {
-		width: 100%;
-		text-align: start;
-
-		@include mixins.breakpoint('small') {
-			width: unset;
-			text-align: center;
 		}
 	}
 }

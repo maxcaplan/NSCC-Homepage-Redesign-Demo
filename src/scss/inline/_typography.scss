@@ -66,6 +66,12 @@ label {
 	line-height: sizing.$line-height-label;
 }
 
+span,
+b,
+i {
+	font-family: inherit;
+}
+
 
 /**
  * Text sizing styles

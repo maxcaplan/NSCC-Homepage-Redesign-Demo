@@ -11,7 +11,7 @@ export function HeroSection() {
 	return (
 		<section
 			id="hero-section"
-			class="section"
+			class="page-section"
 			aria-labelledby="hero-banner-title"
 		>
 			<div class="container">

@@ -26,6 +26,7 @@
 		border-color: transparent;
 		border-width: thin;
 		border-style: solid;
+		cursor: pointer;
 	}
 
 	.button,
@@ -34,15 +35,11 @@
 		@include mixins.transition-colors;
 	}
 
-	.button:hover {
-		cursor: pointer;
-	}
-
 	.button.button-animate-icon .icon {
 		@include mixins.transition-transform;
 	}
 
-	.button.button-animate-icon:not([aria-checked="true"]):hover .icon {
+	.button.button-animate-icon:not([aria-pressed="true"]):hover .icon {
 		transform: translateX(sizing.$root-xs);
 	}
 }
@@ -58,7 +55,7 @@
 	}
 
 
-	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+	.button#{$selector}.button-animate-icon:not([aria-pressed="true"]):hover .icon {
 		transform: translateX(sizing.$root-sm);
 	}
 }
@@ -73,7 +70,7 @@
 		@include mixins.text-title-3;
 	}
 
-	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+	.button#{$selector}.button-animate-icon:not([aria-pressed="true"]):hover .icon {
 		transform: translateX(sizing.$root-sm);
 	}
 }
@@ -88,7 +85,7 @@
 		@include mixins.text-title-2;
 	}
 
-	.button#{$selector}.button-animate-icon:not([aria-checked="true"]):hover .icon {
+	.button#{$selector}.button-animate-icon:not([aria-pressed="true"]):hover .icon {
 		transform: translateX(sizing.$root-md);
 	}
 }

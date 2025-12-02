@@ -26,8 +26,8 @@ export function HeroCarouselSlide(props: HeroCarouselSlideProps) {
 		return `slide-${slide_index}`
 	}
 
-	/** Create footer for noscript section */
-	const no_script_footer = (index?: string | number, total?: string | number) => {
+	/** Info of the current slide and the remaining slides */
+	const slide_count_info = (index?: string | number, total?: string | number) => {
 		if (index === undefined) {
 			return undefined
 		}
@@ -49,9 +49,6 @@ export function HeroCarouselSlide(props: HeroCarouselSlideProps) {
 			class="carousel-slide"
 			id={slide_id(slide_index)}
 		>
-			<h3 class="visually-hidden">
-			</h3>
-
 			<div class="carousel-slide-top">
 				<Image {...image_props} />
 			</div>
@@ -60,7 +57,7 @@ export function HeroCarouselSlide(props: HeroCarouselSlideProps) {
 					id={title_id}
 					class="carousel-slide-title">
 					<span class="visually-hidden">
-						{`Slide ${props.slide_index}: `}
+						{`${slide_count_info(props.slide_index, props.slide_total)}: `}
 					</span>
 					{title}
 				</h3>
@@ -70,12 +67,12 @@ export function HeroCarouselSlide(props: HeroCarouselSlideProps) {
 				{children}
 
 				<noscript>
-					<p class="carousel-slide-no-script">
+					<p class="carousel-slide-no-script" aria-hidden="true">
 
 						{(props.slide_index && props.slide_index > 1) &&
 							<Icon icon="caret-left-solid" size="lg" />
 						}
-						{no_script_footer(slide_index, slide_total)}
+						{slide_count_info(props.slide_index, props.slide_total)}
 						{(props.slide_index && props.slide_total && props.slide_index < props.slide_total) &&
 							<Icon icon="caret-right-solid" size="lg" />
 						}
