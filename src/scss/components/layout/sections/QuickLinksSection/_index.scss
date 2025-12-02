@@ -1,0 +1,113 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+#quick-links-section {
+	padding-top: sizing.$size-2xl;
+	padding-bottom: sizing.$size-2xl;
+	background-color: colors.$neutral-100;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-xl;
+	}
+}
+
+.quick-links-container {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-lg;
+
+	@include mixins.breakpoint('medium') {
+		flex-direction: row;
+		gap: sizing.$size-md;
+	}
+
+	@include mixins.breakpoint('large') {
+		gap: sizing.$size-xl;
+	}
+}
+
+.quick-links-card {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: sizing.$size-2xs;
+	border: colors.$neutral-500 thin solid;
+	background-color: colors.$neutral-50;
+	@include mixins.shadow-sm;
+
+	@include mixins.breakpoint('large') {
+		flex-direction: row;
+	}
+}
+
+.quick-links-card-image {
+	object-fit: cover;
+	height: functions.full-step-up($steps: 4);
+	width: 100%;
+	border-right: colors.$neutral-500 thin solid;
+	background-color: colors.$neutral-100;
+
+	@include mixins.breakpoint('small') {
+		height: functions.full-step-up($steps: 5);
+	}
+
+	@include mixins.breakpoint('large') {
+		height: 100%;
+		min-height: functions.quarter-step-up($steps: 21);
+		width: functions.full-step-up($steps: 5)
+	}
+}
+
+.quick-links-card-body {
+	display: flex;
+	flex-direction: column;
+	align-self: stretch;
+	gap: sizing.$size-sm;
+	padding-left: sizing.$size-md;
+	padding-right: sizing.$size-md;
+	padding-top: sizing.$size-md;
+	padding-bottom: sizing.$size-md;
+	width: 100%;
+
+	@include mixins.breakpoint('large') {
+		padding-left: sizing.$size-lg;
+	}
+
+	h3 {
+		color: colors.$primary-700;
+		@include mixins.text-title-3;
+
+		@include mixins.breakpoint('large') {
+			@include mixins.text-title-2;
+		}
+	}
+
+	p {
+		height: 100%;
+	}
+}
+
+.quick-links-card-footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+	margin-top: sizing.$size-sm;
+
+	@include mixins.breakpoint('large') {
+		justify-content: end;
+	}
+
+	.button {
+		justify-content: space-between;
+		flex: 1;
+
+		@include mixins.breakpoint('large') {
+			flex: unset;
+		}
+	}
+}
