@@ -33,7 +33,12 @@
 	h4,
 	h5,
 	h6 {
+		@include mixins.text-title-2;
 		color: colors.$primary-700;
+
+		@include mixins.breakpoint('medium') {
+			@include mixins.text-title-1;
+		}
 	}
 
 	p {

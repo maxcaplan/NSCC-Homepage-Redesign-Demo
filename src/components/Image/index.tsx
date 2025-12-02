@@ -29,6 +29,8 @@ export interface ImageProps {
 	sources?: ImageSource[]
 	/** alt attribute value of img tag. defaults to "" */
 	alt?: string;
+	/** loading attribute value of img tag */
+	loading?: ImgHTMLAttributes['loading']
 	/** fetchpriority attribute value of img tag */
 	fetchpriority?: ImgHTMLAttributes['fetchpriority'];
 	/** id attribute value of img tag */
@@ -104,6 +106,7 @@ export function Image(props: ImageProps) {
 			<img
 				src={props.src}
 				alt={props.alt || ""}
+				loading={props.loading}
 				fetchpriority={props.fetchpriority}
 				id={props.id}
 				class={props.class}

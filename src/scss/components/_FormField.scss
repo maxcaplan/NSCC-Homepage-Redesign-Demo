@@ -71,12 +71,14 @@
 
 .select-field:hover,
 .select-field:focus-within {
-	outline: 5px auto Highlight;
-	outline: 5px auto -webkit-focus-ring-color;
-
 	.select-button {
 		background-color: colors.$neutral-100;
 	}
+}
+
+.select-field:focus-within {
+	outline: 5px auto Highlight;
+	outline: 5px auto -webkit-focus-ring-color;
 }
 
 .select-field:has(select:open) {

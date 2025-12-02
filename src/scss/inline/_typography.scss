@@ -54,7 +54,9 @@ h6 {
 }
 
 p,
-input {
+input,
+a,
+button {
 	font-family: fonts.$regular;
 	font-size: sizing.$size-body;
 	line-height: sizing.$line-height-body;

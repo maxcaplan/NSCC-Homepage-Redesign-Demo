@@ -1,5 +1,6 @@
 @use '/src/scss/abstract/variables/colors';
 @use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 @use '/src/scss/abstract/functions';
 
@@ -12,6 +13,8 @@
 
 html {
 	scroll-behavior: smooth;
+	font-family: fonts.$regular;
+	@include mixins.text-body;
 }
 
 /**

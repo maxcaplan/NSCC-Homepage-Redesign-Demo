@@ -1,0 +1,49 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/mixins";
+
+#stories-and-highlights-section {
+	padding-top: sizing.$size-2xl;
+	padding-bottom: sizing.$size-2xl;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-xl;
+	}
+
+	.stories-container {
+		display: flex;
+		flex-direction: column;
+		gap: sizing.$size-xl;
+
+		@include mixins.breakpoint('large') {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: sizing.$size-lg;
+		}
+	}
+
+	.story {
+		flex: 1;
+	}
+
+	.more-stories-container {
+		display: flex;
+		flex-direction: row;
+		height: fit-content;
+		width: 100%;
+
+		@include mixins.breakpoint('medium') {
+			justify-content: end;
+		}
+
+		.button {
+			flex: 1;
+			justify-content: space-between;
+
+			@include mixins.breakpoint('medium') {
+				flex: unset;
+			}
+		}
+	}
+}
