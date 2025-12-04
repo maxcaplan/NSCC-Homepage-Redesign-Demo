@@ -1,5 +1,5 @@
 import { Image } from "@/components/Image"
-import "@/scss/components/layout/sections/LandAcknowledgement/_index.scss"
+import "@/scss/components/layout/sections/LandAcknowledgementSection/_index.scss"
 
 import ImageLarge from "/images/land-acknowledgement/land-acknowledgement-large.jpg"
 import ImageMedium from "/images/land-acknowledgement/land-acknowledgement-medium.jpg"

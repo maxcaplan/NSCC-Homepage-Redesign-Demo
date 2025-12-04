@@ -3,6 +3,9 @@
 
 .icon {
 	fill: currentColor;
+	stroke-linecap: round;
+	stroke-width: 1.5px;
+	stroke-linejoin: round;
 }
 
 .icon-xs {
@@ -23,6 +26,7 @@
 .icon-lg {
 	height: sizing.$size-lg;
 	width: auto;
+	stroke-width: 1.25px;
 }
 
 .icon-xl {

@@ -1,0 +1,125 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/fonts";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+.event-content {
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-top: sizing.$size-md;
+	padding-bottom: sizing.$size-md;
+	border-radius: sizing.$size-2xs;
+	border: colors.$neutral-500 thin solid;
+	background-color: colors.$neutral-200;
+	cursor: pointer;
+
+	@include mixins.breakpoint('large') {
+		background-color: colors.$neutral-100;
+	}
+}
+
+.event-content:hover {
+	.event-header h3 {
+		text-decoration: underline;
+	}
+}
+
+.event-content:hover,
+.event-content:focus {
+	.event-icon .icon {
+		transform: translateX(sizing.$size-xs);
+	}
+}
+
+.event-date {
+	display: flex;
+	flex-direction: column;
+	padding-right: sizing.$size-sm;
+	border-right: colors.$neutral-400 thin solid;
+	font-family: fonts.$display;
+	font-weight: 700;
+
+	.event-month {
+		text-transform: uppercase;
+		@include mixins.text-label;
+	}
+
+	.event-day {
+		@include mixins.text-title-3;
+
+		@include mixins.breakpoint('medium') {
+			@include mixins.text-title-2;
+		}
+	}
+}
+
+.event-body {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-2xs;
+	overflow: hidden;
+	padding-left: sizing.$size-sm;
+	width: 100%;
+}
+
+.event-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	gap: sizing.$size-md;
+	width: 100%;
+
+	h3 {
+		flex: 1;
+		text-align: left;
+		color: colors.$primary-700;
+		@include mixins.text-heading;
+	}
+}
+
+.event-description {
+	@include mixins.line-clamp;
+}
+
+.event-footer {
+	display: flex;
+	flex-direction: row;
+	gap: sizing.$size-xs;
+	overflow-y: auto;
+	width: 100%;
+	margin-top: sizing.$size-xs;
+
+	@include mixins.breakpoint('large') {
+		gap: sizing.$size-sm;
+	}
+}
+
+.event-pill {
+	display: flex;
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-bottom: sizing.$size-2xs;
+	padding-top: sizing.$size-2xs;
+	border-radius: sizing.$size-2xs;
+	background-color: colors.$neutral-300;
+	font-weight: 700;
+	white-space: nowrap;
+	text-wrap: nowrap;
+	@include mixins.text-label;
+
+	@include mixins.breakpoint('large') {
+		background-color: colors.$neutral-200;
+	}
+}
+
+.event-icon {
+	margin-left: sizing.$size-sm;
+
+	.icon {
+		@include mixins.transition-transform;
+	}
+}

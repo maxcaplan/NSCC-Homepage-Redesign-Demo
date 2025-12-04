@@ -56,6 +56,18 @@
 	line-height: sizing.$line-height-label;
 }
 
+/** Truncate container text if it's more than the specified number of lines */
+@mixin line-clamp($max-lines: 3) {
+	display: -webkit-box;
+	max-height: calc(sizing.$line-height-body * $max-lines);
+	-webkit-line-clamp: $max-lines;
+	line-clamp: $max-lines;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
+}
+
 
 //
 // Breakpoint mixins

@@ -13,6 +13,7 @@ import ArrowLeft from "@/assets/icons/arrow-left.svg?react"
 import ArrowRight from "@/assets/icons/arrow-right.svg?react"
 import ArrowUp from "@/assets/icons/arrow-up.svg?react"
 import ArrowDown from "@/assets/icons/arrow-down.svg?react"
+import BoxArrowUpRight from "@/assets/icons/box-arrow-up-right.svg?react"
 import MagnifyingGlassSolid from "@/assets/icons/magnifying-glass-solid.svg?react"
 import GiftSolid from "@/assets/icons/gift-solid.svg?react"
 import LockSolid from "@/assets/icons/lock-solid.svg?react"
@@ -20,6 +21,7 @@ import MenuSolid from "@/assets/icons/menu-solid.svg?react"
 import CalendarXSolid from "@/assets/icons/calendar-x-solid.svg?react"
 import BookOpenSolid from "@/assets/icons/book-open-solid.svg?react"
 import InfoCircleSolid from "@/assets/icons/info-circle-solid.svg?react"
+import NewspaperSolid from "@/assets/icons/newspaper-solid.svg?react"
 
 export type IconComponent = FunctionComponent<JSX.SVGAttributes<SVGSVGElement> & {
 	title?: string
@@ -39,6 +41,7 @@ const icons = {
 	"arrow-right": ArrowRight,
 	"arrow-up": ArrowUp,
 	"arrow-down": ArrowDown,
+	"box-arrow-up-right": BoxArrowUpRight,
 	"magnifying-glass-solid": MagnifyingGlassSolid,
 	"gift-solid": GiftSolid,
 	"lock-solid": LockSolid,
@@ -46,6 +49,7 @@ const icons = {
 	"calendar-x-solid": CalendarXSolid,
 	"book-open-solid": BookOpenSolid,
 	"info-circle-solid": InfoCircleSolid,
+	"newspaper-solid": NewspaperSolid,
 }
 
 /** Map of icon names to icon svg components */

@@ -1,0 +1,63 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+.news-article {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-md;
+	padding-top: sizing.$size-lg;
+	padding-bottom: sizing.$size-lg;
+}
+
+.news-article-header {
+	display: flex;
+	flex-direction: row;
+	gap: sizing.$size-sm;
+	align-items: center;
+	font-weight: 700;
+	@include mixins.text-label;
+
+	.icon {
+		color: colors.$primary-600;
+	}
+}
+
+.news-article-body {
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-sm;
+}
+
+.news-article-title {
+	display: flex;
+	flex-direction: row;
+	gap: sizing.$size-xs;
+	width: fit-content;
+	max-width: 100%;
+	color: colors.$primary-600;
+
+	h3 {
+		text-decoration: underline;
+		@include mixins.text-heading;
+	}
+
+	.title-icon-wrapper {
+		display: flex;
+		align-items: center;
+		height: calc(sizing.$size-heading * sizing.$line-height-heading);
+	}
+}
+
+.news-article-content {
+	@include mixins.line-clamp(4);
+}
+
+.news-article-footer {
+	display: flex;
+	flex-direction: row;
+	gap: sizing.$size-sm;
+	color: colors.$neutral-600;
+	@include mixins.text-label;
+}
