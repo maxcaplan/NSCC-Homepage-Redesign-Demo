@@ -22,6 +22,11 @@ import CalendarXSolid from "@/assets/icons/calendar-x-solid.svg?react"
 import BookOpenSolid from "@/assets/icons/book-open-solid.svg?react"
 import InfoCircleSolid from "@/assets/icons/info-circle-solid.svg?react"
 import NewspaperSolid from "@/assets/icons/newspaper-solid.svg?react"
+import FacebookSquareSolid from "@/assets/icons/facebook-square-solid.svg?react"
+import InstagramSquareSolid from "@/assets/icons/instagram-square-solid.svg?react"
+import LinkedinSquareSolid from "@/assets/icons/linkedin-square-solid.svg?react"
+import TiktokSquareSolid from "@/assets/icons/tiktok-square-solid.svg?react"
+import YoutubeSquareSolid from "@/assets/icons/youtube-square-solid.svg?react"
 
 export type IconComponent = FunctionComponent<JSX.SVGAttributes<SVGSVGElement> & {
 	title?: string
@@ -50,6 +55,11 @@ const icons = {
 	"book-open-solid": BookOpenSolid,
 	"info-circle-solid": InfoCircleSolid,
 	"newspaper-solid": NewspaperSolid,
+	"facebook-square-solid": FacebookSquareSolid,
+	"instagram-square-solid": InstagramSquareSolid,
+	"linkedin-square-solid": LinkedinSquareSolid,
+	"tiktok-square-solid": TiktokSquareSolid,
+	"youtube-square-solid": YoutubeSquareSolid,
 }
 
 /** Map of icon names to icon svg components */

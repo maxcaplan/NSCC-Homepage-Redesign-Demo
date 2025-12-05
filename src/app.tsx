@@ -1,4 +1,5 @@
 import { BottomNav } from "./components/layout/BottomNav";
+import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import { FindAProgramSection } from "./components/layout/sections/FindAProgramSection";
 import { HeroSection } from "./components/layout/sections/HeroSection";
@@ -23,6 +24,8 @@ export function App() {
 				<LandAcknowledgementSection />
 				<NewsAndEventsSection />
 			</main>
+
+			<Footer />
 		</>
 	)
 }

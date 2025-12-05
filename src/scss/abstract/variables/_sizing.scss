@@ -105,6 +105,7 @@ $line-height-label: $half-step;
 
 /// Max width value of layout containers
 $size-container: calc(1em * round(pow($full-step, 9), 0.001) * $quarter-step);
+$root-container: calc(1rem * round(pow($full-step, 9), 0.001) * $quarter-step);
 
 
 //

@@ -9,13 +9,13 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding-left: sizing.$size-sm;
-	padding-right: sizing.$size-sm;
+	padding-left: sizing.$root-sm;
+	padding-right: sizing.$root-sm;
 	width: 100%;
 
 	@include mixins.breakpoint('small') {
-		padding-left: sizing.$size-md;
-		padding-right: sizing.$size-md;
+		padding-left: sizing.$root-md;
+		padding-right: sizing.$root-md;
 	}
 }
 
@@ -51,7 +51,7 @@
  */
 .container {
 	width: 100%;
-	max-width: sizing.$size-container;
+	max-width: sizing.$root-container;
 }
 
 /**
