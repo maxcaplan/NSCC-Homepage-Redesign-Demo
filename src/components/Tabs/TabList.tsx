@@ -112,6 +112,7 @@ export function TabList(props: TabListProps) {
 
 	return (
 		<div
+			role="tablist"
 			id={props.id}
 			class={append_classes("tab-list", props.class)}
 		>

@@ -16,6 +16,7 @@
 	font-weight: 700;
 	text-align: left;
 	cursor: pointer;
+	color: colors.$neutral-950;
 	@include mixins.transition-colors;
 
 	@include mixins.breakpoint('small') {

@@ -6,13 +6,14 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: start;
 	gap: sizing.$size-xs;
 	flex: none;
 	width: fit-content;
 
 	.logo {
-		width: fit-content;
 		fill: currentColor;
+		width: auto;
 	}
 
 	.logo-subheading {
