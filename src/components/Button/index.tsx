@@ -25,11 +25,16 @@ interface BaseButtonProps {
 	class?: string;
 	/** Element role */
 	role?: AriaRole
+	/** Element aria hidden value */
+	"aria-hidden"?: boolean
+	/** Element tabindex */
+	tabindex?: number
 	/** Component children */
 	children?: ComponentChildren
 }
 
 interface ButtonProps extends BaseButtonProps {
+	/** Button type */
 	type?: "button" | "submit" | "reset"
 	/** onClick attribute value for element */
 	onClick?: MouseEventHandler<HTMLButtonElement>
@@ -103,6 +108,7 @@ export function Button(props: ButtonProps | LinkButtonProps) {
 				target={props.target}
 				aria-label={props.label}
 				aria-pressed={props.pressed}
+				aria-hidden={props["aria-hidden"]}
 				id={props.id}
 				class={append_classes(
 					"button",
@@ -113,6 +119,7 @@ export function Button(props: ButtonProps | LinkButtonProps) {
 					props.class
 				)}
 				role={props.role}
+				tabindex={props.tabindex}
 				onClick={props.onClick}
 			>
 				{props.children}
@@ -123,6 +130,7 @@ export function Button(props: ButtonProps | LinkButtonProps) {
 			<button
 				aria-label={props.label}
 				aria-pressed={props.pressed}
+				aria-hidden={props["aria-hidden"]}
 				id={props.id}
 				class={append_classes(
 					"button",
@@ -134,6 +142,7 @@ export function Button(props: ButtonProps | LinkButtonProps) {
 				)}
 				role={props.role}
 				type={props.type}
+				tabindex={props.tabindex}
 				onClick={props.onClick}
 			>
 				{props.children}

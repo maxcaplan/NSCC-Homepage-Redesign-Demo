@@ -43,6 +43,11 @@
 	font-family: fonts.$display;
 	font-weight: 700;
 
+	h3 {
+		font-size: 1rem;
+		line-height: 1;
+	}
+
 	.event-month {
 		text-transform: uppercase;
 		@include mixins.text-label;

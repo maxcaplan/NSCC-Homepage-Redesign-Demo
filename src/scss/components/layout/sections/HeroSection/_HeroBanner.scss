@@ -7,10 +7,12 @@
 
 .hero-banner {
 	position: relative;
+	z-index: 0;
 	display: flex;
 	width: 100%;
 	border-radius: sizing.$size-2xs;
 	border: colors.$neutral-500 thin solid;
+	background-color: colors.$neutral-500;
 	color: colors.$white;
 	@include mixins.shadow-sm;
 }
@@ -24,7 +26,7 @@
 	z-index: -1;
 	width: 100%;
 	height: 100%;
-	background-color: colors.$neutral-400;
+	background-color: colors.$neutral-500;
 }
 
 .hero-banner-image-wrapper::after {
@@ -35,15 +37,16 @@
 	bottom: 0;
 	display: inline-block;
 	content: '';
-	$gradient-dark: rgba(0, 0, 0, 1);
+	$gradient-dark: rgba(0, 0, 0, 0.85);
 	$gradient-light: rgba(0, 0, 0, 0);
+	$gradient-start: 15%;
 	$gradient-stop: 85%;
 	background: rgba(0, 0, 0, 0.6);
-	background: -webkit-linear-gradient(0deg, $gradient-dark 0%, $gradient-light $gradient-stop);
-	background: -moz-linear-gradient(0deg, $gradient-dark 0%, $gradient-light $gradient-stop);
-	background: linear-gradient(0deg, $gradient-dark 0%, $gradient-light $gradient-stop);
-	mask: linear-gradient(0deg, black 0%, transparent $gradient-stop);
-	backdrop-filter: blur(8px);
+	background: -webkit-linear-gradient(0deg, $gradient-dark $gradient-start, $gradient-light $gradient-stop);
+	background: -moz-linear-gradient(0deg, $gradient-dark $gradient-start, $gradient-light $gradient-stop);
+	background: linear-gradient(0deg, $gradient-dark $gradient-start, $gradient-light $gradient-stop);
+	// mask: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) $gradient-stop);
+	// backdrop-filter: blur(8px);
 }
 
 .hero-banner-image {

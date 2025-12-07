@@ -10,11 +10,14 @@ interface HeroCarouselThumbnailProps {
 	onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
+/** Hero carousel slide thumbnail navigation button */
 export function HeroCarouselThumbnail(props: HeroCarouselThumbnailProps) {
 	return (
 		<button
-			class={append_classes("hero-carousel-thumbnail", props.active ? "active" : undefined)}
+			aria-hidden={true}
+			tabindex={-1}
 			aria-label={`Scroll to slide ${props["slide-index"]}`}
+			class={append_classes("hero-carousel-thumbnail", props.active ? "active" : undefined)}
 			onClick={props.onClick}
 		>
 			<Image {...props.image} />

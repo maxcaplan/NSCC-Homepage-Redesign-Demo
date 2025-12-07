@@ -79,12 +79,15 @@ export function Event(props: EventProps) {
 		>
 			<a href="#" class="event-content">
 				<div class="event-date">
-					<p class="event-month">
-						{props.date.month}
-					</p>
-					<p class="event-day">
-						{leading_zero(props.date.day)}
-					</p>
+					<h3>
+						<span class="event-month">
+							{props.date.month}
+						</span>
+						<br />
+						<span class="event-day">
+							{leading_zero(props.date.day)}
+						</span>
+					</h3>
 				</div>
 
 				<div class="event-body">
@@ -114,6 +117,6 @@ export function Event(props: EventProps) {
 					<Icon icon="chevron-right" size="lg" />
 				</div>
 			</a>
-		</article>
+		</article >
 	)
 }

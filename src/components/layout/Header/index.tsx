@@ -39,7 +39,7 @@ export function Header() {
 					<a class="header-skip-to" href="#utility-navigation">
 						Skip to site utility navigation
 					</a>
-					<a class="header-skip-to" href="#footer">
+					<a class="header-skip-to" href="#page-footer">
 						Skip to site footer
 					</a>
 

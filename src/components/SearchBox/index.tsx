@@ -5,8 +5,12 @@ import { Icon } from "../Icon";
 export function SearchBox() {
 	return (
 		<form class="search-box-container">
+			<label for="nscc-search" class="visually-hidden">
+				Search nscc.ca
+			</label>
 			<input
-				name="Search nscc.ca"
+				id="nscc-search"
+				name="search-nscc"
 				title="Search nscc.ca"
 				type="text"
 				placeholder="Search nscc.ca..."

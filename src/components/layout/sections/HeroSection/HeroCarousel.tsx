@@ -117,7 +117,7 @@ export function HeroCarousel(props: HeroCarouselProps) {
 	}
 
 	return (
-		<section
+		<div
 			aria-labelledby="hero-carousel-title"
 			class="hero-carousel"
 		>
@@ -138,13 +138,9 @@ export function HeroCarousel(props: HeroCarouselProps) {
 				</ul>
 			</div>
 			<div class="carousel-footer">
-				<a
-					href="#find-a-program"
-					class="hero-carousel-skip-controls"
-				>
-					Skip carousel controls
-				</a>
 				<Button
+					aria-hidden={true}
+					tabindex={-1}
 					label="Scroll to previous slide"
 					color="neutral"
 					style="outline"
@@ -158,6 +154,8 @@ export function HeroCarousel(props: HeroCarouselProps) {
 				</div>
 
 				<Button
+					aria-hidden={true}
+					tabindex={-1}
 					label="Scroll to next slide"
 					color="neutral"
 					style="outline"
@@ -166,6 +164,6 @@ export function HeroCarousel(props: HeroCarouselProps) {
 					<Icon icon="arrow-right" size="md" />
 				</Button>
 			</div>
-		</section>
+		</div>
 	)
 }
