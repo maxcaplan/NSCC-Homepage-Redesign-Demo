@@ -4,7 +4,7 @@ import { Icon } from "../Icon";
 /** Website search box form component */
 export function SearchBox() {
 	return (
-		<form class="search-box-container">
+		<form class="search-box">
 			<label for="nscc-search" class="visually-hidden">
 				Search nscc.ca
 			</label>

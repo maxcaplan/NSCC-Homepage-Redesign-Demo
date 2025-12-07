@@ -5,12 +5,12 @@
 @use "/src/scss/abstract/functions";
 
 .search-menu-toggle {
-	height: sizing.$size-xl;
-	width: sizing.$size-xl;
+	height: sizing.$root-xl;
+	width: sizing.$root-xl;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: sizing.$size-2xs;
+	border-radius: sizing.$root-2xs;
 	background-color: colors.$primary-700;
 	border: colors.$primary-600 thin solid;
 	color: colors.$white;
@@ -19,7 +19,7 @@
 	@include mixins.transition-colors;
 
 	.search-menu-icon {
-		height: functions.half-step-up(sizing.$size-md);
+		height: functions.half-step-up(sizing.$root-md);
 	}
 
 	@include mixins.breakpoint('small') {

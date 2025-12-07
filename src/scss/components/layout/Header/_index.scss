@@ -1,15 +1,47 @@
 @use '/src/scss/abstract/variables/sizing';
 @use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/animations';
 @use '/src/scss/abstract/mixins';
 @use '/src/scss/abstract/functions';
 
-.header {
+// Animation speed for sticky transition
+$sticking-transtion-speed: animations.$transition-medium;
+
+// Height of logo at breakpoints
+$logo-height: sizing.$size-lg;
+$logo-height-medium: functions.half-step-up(sizing.$size-lg);
+
+// Height of logo subheading
+$subheading-height: sizing.$size-label * sizing.$line-height-label;
+
+// Height of the top of the header at breakpoints
+$header-top-height: calc($logo-height + sizing.$size-sm * 2);
+$header-top-height-large: calc($logo-height-medium + sizing.$size-md * 2 + $subheading-height + sizing.$size-xs);
+
+// Height of the header at breakpoints
+$header-height: calc(sizing.$size-xl + sizing.$size-sm * 2);
+$header-height-medium: calc(sizing.$size-xl + sizing.$size-md * 2);
+$header-height-large: calc($header-top-height-large + sizing.$size-xs * 2 + sizing.$size-body * sizing.$line-height-body);
+
+#header {
 	position: sticky;
 	top: 0;
 	z-index: 5;
+	height: $header-height;
 	width: 100%;
 	color: colors.$white;
-	@include mixins.shadow-sm;
+
+	@include mixins.breakpoint('medium') {
+		height: $header-height-medium;
+	}
+
+	@include mixins.breakpoint('large') {
+		height: $header-height-large;
+	}
+
+	.header-wrapper {
+		@include mixins.shadow-sm;
+	}
 
 	.header-top {
 		position: relative;
@@ -21,6 +53,7 @@
 		background-color: colors.$primary-700;
 		display: flex;
 		justify-content: center;
+		@include mixins.transition(padding, $sticking-transtion-speed);
 
 		@include mixins.breakpoint('small') {
 			padding-left: sizing.$size-md;
@@ -57,16 +90,24 @@
 		@include mixins.visually-hidden;
 	}
 
+	.logo-container {
+		@include mixins.transition(gap, $sticking-transtion-speed);
+	}
+
 	.logo-container .logo {
-		height: sizing.$size-lg;
+		height: $logo-height;
+		@include mixins.transition(height, $sticking-transtion-speed);
 
 		@include mixins.breakpoint('medium') {
-			height: functions.half-step-up(sizing.$size-lg);
+			height: $logo-height-medium;
 		}
 	}
 
 	.logo-subheading {
 		display: none;
+		overflow: hidden;
+		height: calc(sizing.$size-label * sizing.$line-height-label);
+		@include mixins.transition(height, $sticking-transtion-speed);
 
 		@include mixins.breakpoint('large') {
 			display: block;
@@ -81,7 +122,7 @@
 		width: 100%;
 	}
 
-	.search-box-container {
+	.search-box {
 		display: none;
 
 		@include mixins.breakpoint('large') {
@@ -128,5 +169,24 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: end;
+	}
+}
+
+#header.header-sticking {
+	.header-top {
+		padding-top: sizing.$size-sm;
+		padding-bottom: sizing.$size-sm;
+	}
+
+	.logo-container {
+		gap: 0;
+	}
+
+	.logo-container .logo {
+		height: sizing.$size-lg;
+	}
+
+	.logo-container .logo-subheading {
+		height: 0;
 	}
 }

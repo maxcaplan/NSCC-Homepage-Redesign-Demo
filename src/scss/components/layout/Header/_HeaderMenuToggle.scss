@@ -4,14 +4,14 @@
 @use '/src/scss/abstract/mixins';
 
 .header-menu-toggle {
-	height: sizing.$size-xl;
+	height: sizing.$root-xl;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: sizing.$size-xs;
-	padding-left: sizing.$size-sm;
-	padding-right: sizing.$size-sm;
-	border-radius: sizing.$size-2xs;
+	gap: sizing.$root-xs;
+	padding-left: sizing.$root-sm;
+	padding-right: sizing.$root-sm;
+	border-radius: sizing.$root-2xs;
 	background-color: colors.$primary-700;
 	border: colors.$primary-600 thin solid;
 	color: colors.$white;
@@ -22,6 +22,10 @@
 
 	@include mixins.breakpoint('small') {
 		@include mixins.text-body;
+	}
+
+	.logo {
+		height: sizing.$root-md;
 	}
 }
 
