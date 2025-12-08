@@ -155,20 +155,28 @@ $header-height-large: calc($header-top-height-large + sizing.$size-xs * 2 + sizi
 	.header-bottom .container {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-evenly;
 	}
 
-	.primary-navigation {
+	.main-navigation-links {
+
 		display: flex;
 		align-items: center;
 		justify-content: start;
+		list-style: none;
 	}
 
-	.secondary-navigation {
+	.utility-navigation {
+		flex: 1;
 		display: flex;
-		width: 100%;
+		justify-content: end;
+	}
+
+	.utility-navigation-links {
+		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: end;
+		list-style: none;
 	}
 }
 

@@ -18,13 +18,17 @@ interface TopNavLinkProps {
 /** Top navigation link component */
 export function TopNavLink(props: TopNavLinkProps) {
 	return (
-		<a
-			href={props.href}
-			aria-label={props.label}
-			id={props.id}
-			class={append_classes("top-nav-link", props.active ? "active" : undefined)}
+		<li
 		>
-			{props.children}
-		</a>
+			<a
+				href={props.href}
+				aria-label={props.label}
+				aria-current={props.active ? "page" : undefined}
+				id={props.id}
+				class={append_classes("top-nav-link", props.active ? "active" : undefined)}
+			>
+				{props.children}
+			</a>
+		</li>
 	)
 }

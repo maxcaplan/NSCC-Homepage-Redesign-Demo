@@ -24,6 +24,7 @@ export function App() {
 		set_is_header_sticking(window.pageYOffset > header_sticking_offset)
 	}
 
+	// Attach scroll event listener to document
 	useEffect(() => {
 		if (main_ref.current === null) {
 			return
