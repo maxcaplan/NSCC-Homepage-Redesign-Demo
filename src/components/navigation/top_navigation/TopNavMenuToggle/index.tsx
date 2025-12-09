@@ -1,17 +1,15 @@
-import { Icon } from "@/components/Icon";
 import "@/scss/components/navigation/top_navigation/_TopNavMenuToggle.scss"
-import { child_is_vnode } from "@/util/children";
-import { type ComponentChildren } from "preact";
-import { Menu } from "../../menus/Menu";
-import { useContext, useEffect, useRef, useState } from "preact/hooks";
-import { MenusContext, type MenuName } from "@/components/layout/Header";
-import { MenuToggleContext } from "../../menus/MenuToggleContext";
+import { Icon } from "@/components/Icon";
+import { type ComponentChildren, type Consumer, type Context } from "preact";
+import { type MenuType } from "../../menus/Menu";
+import { append_classes } from "@/util/classes";
+import type { JSX } from "preact/jsx-runtime";
+import { createMenuToggle, type MenuToggleContextType } from "../../menus/MenuToggle";
+import { AppNavMultiMenu, type MenuKeys } from "../../AppNavMultiMenu";
 
-interface TopNavMenuToggleProps {
-	/** Label for button element */
-	label?: string
+interface TopNavMenuToggleProps<MenuKeyType> {
 	/** Name of the menu associated with this toggle */
-	menu: MenuName
+	menu: MenuKeyType
 	/** Id of the menu this toggle controls */
 	"menu-id"?: string
 	/** Active state of navigation */
@@ -20,86 +18,63 @@ interface TopNavMenuToggleProps {
 	children?: ComponentChildren
 }
 
-const filter_children = (
+interface TopNavMenuToggleButtonProps {
+	/** Label for button element */
+	label?: string
+	/** Component children */
 	children?: ComponentChildren
-): {
-	children?: ComponentChildren,
-	menu_children?: ComponentChildren
-} => {
-	if (children === undefined) {
-		return {}
-	}
-
-	if (Array.isArray(children)) {
-		const non_menu_children = children
-			.filter((child) => !(child_is_vnode(child) && child.type === Menu))
-		const menu_children = children
-			.filter((child) => child_is_vnode(child) && child.type === Menu)
-
-		return {
-			children: non_menu_children,
-			menu_children
-		}
-
-	} else {
-		if (child_is_vnode(children) && children.type === Menu) {
-			return {
-				menu_children: children
-			}
-		}
-
-		return { children }
-	}
 }
 
-/** Top navigation mega menu toggle component */
-export function TopNavMenuToggle(props: TopNavMenuToggleProps) {
-	const { open_menu, toggle_menu } = useContext(MenusContext)
-	const [is_open, set_is_open] = useState<boolean | undefined>(open_menu === props.menu)
+interface TopNavMenuToggleType {
+	(props: TopNavMenuToggleProps<MenuKeys>): JSX.Element
+	/** Top navigation mega menu toggle button component */
+	Button: (props: TopNavMenuToggleButtonProps) => JSX.Element
+	/** Top navigation mega menu wrapper component */
+	Menu: MenuType
+	/** Top navigation toggle context */
+	context: Context<MenuToggleContextType<MenuKeys>>
+	/** Top navigation toggle context consumer */
+	Consumer: Consumer<MenuToggleContextType<MenuKeys>>
+}
 
-	const focus_ref = useRef<HTMLElement>(null)
+const MenuToggle = createMenuToggle(AppNavMultiMenu)
 
-	const { children, menu_children } = filter_children(props.children)
-
-	const handle_click = () => {
-		if (toggle_menu === undefined) {
-			return
-		}
-
-		toggle_menu(props.menu)
-	}
-
-	// Update open state when open menu changes
-	useEffect(() => {
-		set_is_open(open_menu === props.menu)
-	}, [props.menu, open_menu])
-
+/** Top navigation mega menu toggle wrapper component */
+const TopNavMenuToggle: TopNavMenuToggleType = (props) => {
 	return (
-		<li class="top-nav-menu-toggle">
-			<MenuToggleContext.Provider
-				value={{
-					menu: props.menu,
-					menu_id: props["menu-id"],
-					is_open,
-					focus_ref,
-				}}
-			>
-				<button
-					aria-label={props.label}
-					aria-haspopup="true"
-					aria-controls={props["menu-id"]}
-					aria-expanded={props.menu === open_menu || false}
-					class={props.active ? "active" : undefined}
-					onClick={handle_click}
-				>
-					{children}
-
-					<Icon icon="caret-down-solid" size="md" class="open-icon" />
-					<Icon icon="caret-up-solid" size="md" class="close-icon" />
-				</button>
-
-				{menu_children}
-			</MenuToggleContext.Provider>
-		</li >
+		<MenuToggle
+			menu={props.menu}
+			menu-id={props["menu-id"]}
+			class={append_classes(
+				"top-nav-menu-toggle",
+				props.active ? "active" : undefined
+			)}
+		>
+			{props.children}
+		</MenuToggle>
 	)
 }
+
+/** Top navigation mega menu toggle button component */
+const TopNavMenuToggleButton = (props: TopNavMenuToggleButtonProps) => {
+	return (
+		<MenuToggle.Button
+			label={props.label}
+			class="top-nav-menu-toggle-button"
+		>
+			{props.children}
+
+			<Icon icon="caret-down-solid" size="md" class="open-icon" />
+			<Icon icon="caret-up-solid" size="md" class="close-icon" />
+		</MenuToggle.Button>
+	)
+}
+
+// Set TopNavMenuToggle subcomponents
+TopNavMenuToggle.Button = TopNavMenuToggleButton
+TopNavMenuToggle.Menu = MenuToggle.Menu
+TopNavMenuToggle.Consumer = MenuToggle.Consumer
+TopNavMenuToggle.context = MenuToggle.context
+
+export { TopNavMenuToggle }
+

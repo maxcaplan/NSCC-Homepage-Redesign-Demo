@@ -1,0 +1,70 @@
+@use '/src/scss/abstract/variables/sizing';
+@use '/src/scss/abstract/variables/colors';
+@use '/src/scss/abstract/variables/fonts';
+@use '/src/scss/abstract/mixins';
+
+.menu-link-item a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: sizing.$size-sm;
+
+	padding-left: sizing.$size-sm;
+	padding-right: sizing.$size-sm;
+	padding-top: sizing.$size-xs;
+	padding-bottom: sizing.$size-xs;
+
+	border-radius: sizing.$size-2xs;
+	border: colors.$primary-400 thin solid;
+	background-color: colors.$primary-50;
+	color: colors.$primary-700;
+
+	font-weight: 700;
+	font-family: fonts.$display;
+	@include mixins.transition-colors;
+}
+
+.menu-link-item a:hover {
+	background-color: colors.$primary-100;
+}
+
+.menu-link-item .menu-link-item-icon {
+	display: flex;
+	justify-content: end;
+	flex-grow: 1;
+	flex-shrink: 0;
+
+	.icon {
+		@include mixins.transition-transform;
+	}
+}
+
+.menu-link-item a:hover,
+.menu-link-item a:focus-visible {
+	.menu-link-item-icon .icon {
+		transform: translateX(sizing.$size-xs);
+	}
+}
+
+.menu-link-item.sub-menu-link-item a {
+	border: none;
+	outline: transparent thin solid;
+	background-color: unset;
+	color: colors.$on-background;
+	font-weight: 400;
+}
+
+.menu-link-item.sub-menu-link-item a:hover {
+	outline: colors.$primary-200 thin solid;
+	background-color: colors.$primary-50;
+}
+
+.menu-link-item.secondary-menu-link-item a {
+	border: colors.$neutral-400 thin solid;
+	background-color: colors.$neutral-100;
+	color: colors.$neutral-600;
+}
+
+.menu-link-item.secondary-menu-link-item a:hover {
+	background-color: colors.$neutral-200;
+}

@@ -1,6 +1,7 @@
+import "@/scss/components/navigation/bottom_navigation/_BottomNavLink.scss"
+
 import { Icon } from "@/components/Icon";
 import type { IconKeys } from "@/components/Icon/icons";
-import "@/scss/components/navigation/bottom_navigation/_bottom_nav_link.scss"
 import { append_classes } from "@/util/classes";
 import type { ComponentChildren } from "preact";
 
@@ -22,18 +23,24 @@ export interface BottomNavLinkProps {
 /** Bottom navigation link component */
 export function BottomNavLink(props: BottomNavLinkProps) {
 	return (
-		<a
-			href={props.href}
-			aria-label={props.label}
-			class={append_classes("bottom-nav-link", props.active ? "active" : undefined)}
+		<li
+			class={append_classes(
+				"bottom-nav-link",
+				props.active ? "active" : undefined
+			)}
 		>
-			<div class="link-body">
-				<Icon
-					icon={props.icon}
-					size="lg"
-				/>
-				{props.children}
-			</div>
-		</a>
+			<a
+				href={props.href}
+				aria-label={props.label}
+			>
+				<div class="link-body">
+					<Icon
+						icon={props.icon}
+						size="lg"
+					/>
+					{props.children}
+				</div>
+			</a>
+		</li>
 	)
 }

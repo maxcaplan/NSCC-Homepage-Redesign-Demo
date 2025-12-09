@@ -3,23 +3,31 @@
 @use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 
-.bottom-nav-link {
+.bottom-nav-menu-toggle {
 	display: flex;
+	flex: 1;
+}
+
+.bottom-nav-menu-toggle-button {
+	display: flex;
+	flex: 1;
 	align-items: center;
 	justify-content: center;
-	flex-grow: 1;
 	padding-left: sizing.$size-2xs;
 	padding-right: sizing.$size-2xs;
 	padding-top: sizing.$size-2xs;
 	padding-bottom: sizing.$size-2xs;
 	font-family: fonts.$display;
+	background-color: unset;
+	cursor: pointer;
 	@include mixins.text-label;
 
 	.link-body {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+		gap: sizing.$size-xs;
 		width: 100%;
 		height: 100%;
 		padding-left: sizing.$size-xs;
@@ -32,18 +40,58 @@
 		@include mixins.transition-colors;
 	}
 
+	.link-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
 	.icon {
 		color: colors.$neutral-400;
 	}
 }
 
+/** purgecss ignore */
+.menu-toggle .bottom-nav-menu-toggle-button {
+	.open-icon {
+		display: block;
+	}
+
+	.close-icon {
+		display: none;
+	}
+}
+
 /* purgecss ignore */
-.bottom-nav-link:hover .link-body {
+.bottom-nav-menu-toggle-button:hover .link-body {
 	outline: colors.$primary-200 2px solid;
 }
 
 /* purgecss ignore */
-.bottom-nav-link.active {
+.menu-toggle-open .bottom-nav-menu-toggle-button {
+	.icon {
+		color: colors.$primary-600;
+	}
+
+	.link-body {
+		background-color: colors.$primary-100;
+		color: colors.$primary-600;
+		font-weight: 700;
+	}
+
+	.open-icon {
+		display: none;
+	}
+
+	.close-icon {
+		display: block;
+	}
+}
+
+/* purgecss ignore */
+.active:not(.menu-toggle-open) .bottom-nav-menu-toggle-button {
 	.link-body {
 		color: colors.$primary-600;
 		font-weight: 700;

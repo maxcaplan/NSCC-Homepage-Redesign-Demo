@@ -99,15 +99,52 @@
 
 
 @mixin shadow-sm {
-	box-shadow: 0 0 sizing.$size-sm sizing.$size-sm color.change(colors.$neutral-950, $alpha: 0.1);
+	box-shadow: 0 0 sizing.$size-sm color.change(colors.$neutral-950, $alpha: 0.15);
 }
 
 @mixin shadow-md {
-	box-shadow: 0 0 sizing.$size-md sizing.$size-md color.change(colors.$neutral-950, $alpha: 0.1);
+	box-shadow: 0 0 sizing.$size-md color.change(colors.$neutral-950, $alpha: 0.15);
 }
 
 @mixin shadow-lg {
-	box-shadow: 0 0 sizing.$size-lg sizing.$size-lg color.change(colors.$neutral-950, $alpha: 0.1);
+	box-shadow: 0 0 sizing.$size-lg color.change(colors.$neutral-950, $alpha: 0.15);
+}
+
+@mixin shadow-clip($size: sizing.$size-sm, $left: false, $right: false, $top: false, $bottom: false) {
+	$left-offset: -($size);
+	$right-offset: -($size);
+	$top-offset: -($size);
+	$bottom-offset: -($size);
+
+	@if $left {
+		$left-offset: 0;
+	}
+
+	@if $right {
+		$right-offset: 0;
+	}
+
+	@if $top {
+		$top-offset: 0;
+	}
+
+	@if $bottom {
+		$bottom-offset: 0;
+	}
+
+	clip-path: inset($top-offset $right-offset $bottom-offset $left-offset);
+}
+
+@mixin shadow-sm-clip($left: false, $right: false, $top: false, $bottom: false) {
+	@include shadow-clip(sizing.$size-sm, $left, $right, $top, $bottom);
+}
+
+@mixin shadow-md-clip($left: false, $right: false, $top: false, $bottom: false) {
+	@include shadow-clip(sizing.$size-md, $left, $right, $top, $bottom);
+}
+
+@mixin shadow-lg-clip($left: false, $right: false, $top: false, $bottom: false) {
+	@include shadow-clip(sizing.$size-lg, $left, $right, $top, $bottom);
 }
 
 

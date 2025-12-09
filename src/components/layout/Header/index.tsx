@@ -5,25 +5,11 @@ import { TopNavLink } from "@/components/navigation/top_navigation/TopNavLink"
 import { SearchBox } from "@/components/SearchBox"
 import { TopNavMenuToggle } from "@/components/navigation/top_navigation/TopNavMenuToggle"
 import { Icon } from "@/components/Icon"
-import { SearchMenuToggle } from "./search_menu_toggle"
-import { HeaderMenuToggle } from "./header_menu_toggle";
-import { createContext } from "preact";
-import { useMenuState, type ToggleMenuCallback, type CloseMenuCallback } from "@/hooks/menus";
-
-/** Top navigation menu identifier */
-export type MenuName = "programs" | "admissions" | "student" | "campuses" | "about" | "login" | "hamburger" | "search"
-
-interface MenusContextType {
-	/** Menu that is currently open */
-	open_menu?: MenuName | null
-	/** Open a menu, if already open, close it */
-	toggle_menu?: ToggleMenuCallback<MenuName>
-	/** Close open menu */
-	close_menu?: CloseMenuCallback<MenuName>
-}
-
-/** Header menus state context */
-export const MenusContext = createContext<MenusContextType>({})
+import { SearchMenuToggle } from "./SearchMenuToggle"
+import { HamburgerMenuToggle } from "./HamburgerMenuToggle";
+import { LoginMenu } from "@/components/navigation/menus/LoginMenu";
+import { useContext } from "preact/hooks";
+import { AppNavMultiMenu } from "@/components/navigation/AppNavMultiMenu";
 
 interface HeaderProps {
 	/** Whether the header is sticking to the top of the window while scrolling */
@@ -32,157 +18,183 @@ interface HeaderProps {
 
 /** Page layout header component */
 export function Header(props: HeaderProps) {
-	/** Menu that is currently open */
-	const [open_menu, toggle_menu, close_menu] = useMenuState<MenuName | null>(null)
+	const { close_menu } = useContext(AppNavMultiMenu.context)
 
 	return (
 		<header id="header" class={props.sticking ? "header-sticking" : ""}>
-			<MenusContext.Provider
-				value={{
-					open_menu,
-					toggle_menu,
-					close_menu,
-				}}
-			>
-				<div class="header-wrapper">
-					<div class="header-top">
-						<div class="container">
-							<a class="header-skip-to" href="#hero-section">
-								Skip to main content
-							</a>
-							<a class="header-skip-to" href="#main-navigation">
-								Skip to main site navigation
-							</a>
-							<a class="header-skip-to" href="#utility-navigation">
-								Skip to site utility navigation
-							</a>
-							<a class="header-skip-to" href="#page-footer">
-								Skip to site footer
-							</a>
+			<div class="header-wrapper">
+				<div class="header-top">
+					<div class="container">
+						<a class="header-skip-to" href="#hero-section">
+							Skip to main content
+						</a>
+						<a class="header-skip-to" href="#main-navigation">
+							Skip to main site navigation
+						</a>
+						<a class="header-skip-to" href="#utility-navigation">
+							Skip to site utility navigation
+						</a>
+						<a class="header-skip-to" href="#page-footer">
+							Skip to site footer
+						</a>
 
-							<Logo
-								label="Scroll to top"
-							/>
+						<Logo
+							label="Scroll to top"
+						/>
 
-							<div class="right-align">
-								<SearchBox />
+						<div class="right-align">
+							<SearchBox />
 
-								<SearchMenuToggle
-									onClick={() => toggle_menu("search")}
-								/>
+							<SearchMenuToggle>
+								<SearchMenuToggle.Button />
+							</SearchMenuToggle>
 
-								<HeaderMenuToggle
-									onClick={() => toggle_menu("hamburger")}
-								/>
-							</div>
+							<HamburgerMenuToggle>
+								<HamburgerMenuToggle.Button />
+							</HamburgerMenuToggle>
 						</div>
 					</div>
+				</div>
 
-					<div class="header-bottom">
-						<div class="container">
-							<nav
-								id="main-navigation"
-								class="main-navigation"
-								aria-label="Main Navigation"
+				<div class="header-bottom">
+					<div class="container">
+						<nav
+							id="main-navigation"
+							class="main-navigation"
+							aria-label="Main Navigation"
+						>
+							<ul
+								class="main-navigation-links"
 							>
-								<ul
-									class="main-navigation-links"
+								<TopNavLink
+									href="#"
+									label="Scroll to top"
+									active
 								>
-									<TopNavLink
-										href="#"
-										label="Scroll to top"
-										active
-									>
-										Home
-									</TopNavLink>
+									Home
+								</TopNavLink>
 
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="programs"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle Programs & courses menu"
-										menu="programs"
 									>
 										Programs &amp; courses
-									</TopNavMenuToggle>
+									</TopNavMenuToggle.Button>
+								</TopNavMenuToggle>
 
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="admissions"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle Admissions menu"
-										menu="admissions"
 									>
 										Admissions
-									</TopNavMenuToggle>
+									</TopNavMenuToggle.Button>
+								</TopNavMenuToggle>
 
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="student"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle Student experience menu"
-										menu="student"
 									>
 										Student experience
-									</TopNavMenuToggle>
+									</TopNavMenuToggle.Button>
+								</TopNavMenuToggle>
 
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="campuses"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle Campuses menu"
-										menu="campuses"
 									>
 										Campuses
-									</TopNavMenuToggle>
+									</TopNavMenuToggle.Button>
+								</TopNavMenuToggle>
 
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="about"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle About menu"
-										menu="about"
 									>
 										About
-									</TopNavMenuToggle>
-								</ul>
-							</nav>
+									</TopNavMenuToggle.Button>
+								</TopNavMenuToggle>
+							</ul>
+						</nav>
 
-							<nav
-								aria-label="Utility Navigation"
-								id="utility-navigation"
-								class="utility-navigation"
+						<nav
+							aria-label="Utility Navigation"
+							id="utility-navigation"
+							class="utility-navigation"
+						>
+							<ul
+								class="utility-navigation-links"
 							>
-								<ul
-									class="utility-navigation-links"
+
+								<TopNavLink
+									href="#"
+									label="Donate"
+									active={false}
 								>
+									<Icon icon="gift-solid" size="md" />
 
-									<TopNavLink
-										href="#"
-										label="Donate"
-										active={false}
-									>
-										<Icon icon="gift-solid" size="md" />
+									Donate
+								</TopNavLink>
 
-										Donate
-									</TopNavLink>
+								<TopNavLink
+									href="#"
+									label="Donate"
+									active={false}
+								>
+									Closures
+								</TopNavLink>
 
-									<TopNavLink
-										href="#"
-										label="Donate"
-										active={false}
-									>
-										Closures
-									</TopNavLink>
+								<TopNavLink
+									href="#"
+									label="Donate"
+									active={false}
+								>
+									Libraries
+								</TopNavLink>
 
-									<TopNavLink
-										href="#"
-										label="Donate"
-										active={false}
-									>
-										Libraries
-									</TopNavLink>
-
-									<TopNavMenuToggle
+								<TopNavMenuToggle
+									menu="login"
+									menu-id="top-login-menu"
+									active={false}
+								>
+									<TopNavMenuToggle.Button
 										label="Toggle Login menu"
-										menu="login"
-										menu-id="top-login-menu"
 									>
 										<Icon icon="lock-solid" size="md" />
 
 										Login
-									</TopNavMenuToggle>
-								</ul>
-							</nav>
-						</div>
+									</TopNavMenuToggle.Button>
+
+									<TopNavMenuToggle.Menu>
+										<TopNavMenuToggle.Consumer>
+											{({ focus_ref }) => (
+												<LoginMenu
+													focus_ref={focus_ref}
+													close_menu={close_menu}
+												/>
+											)}
+										</TopNavMenuToggle.Consumer>
+									</TopNavMenuToggle.Menu>
+								</TopNavMenuToggle>
+							</ul>
+						</nav>
 					</div>
 				</div>
-			</MenusContext.Provider>
+			</div>
 		</header>
 	)
 }

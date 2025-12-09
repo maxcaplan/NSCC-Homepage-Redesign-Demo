@@ -3,7 +3,7 @@
 @use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 
-.header-menu-toggle {
+.hamburger-menu-toggle-button {
 	height: sizing.$root-xl;
 	display: flex;
 	justify-content: center;
@@ -17,6 +17,7 @@
 	color: colors.$white;
 	font-family: fonts.$display;
 	font-weight: 700;
+	cursor: pointer;
 	@include mixins.text-label;
 	@include mixins.transition-colors;
 
@@ -24,20 +25,18 @@
 		@include mixins.text-body;
 	}
 
-	.logo {
-		height: sizing.$root-md;
+	.icon {
+		height: sizing.$root-lg;
 	}
 }
 
-.header-menu-toggle:hover {
-	cursor: pointer;
+.hamburger-menu-toggle-button:hover {
 	background-color: colors.$primary-600;
 	border-color: colors.$primary-500;
 }
 
 /* purgecss ignore */
-.header-menu-toggle[aria-expanded="true"] {
+.menu-toggle-open .hamburger-menu-toggle-button {
 	background-color: colors.$primary-600;
-	border: none;
 	outline: colors.$primary-200 2px solid;
 }

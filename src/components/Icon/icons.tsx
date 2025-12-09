@@ -27,6 +27,11 @@ import InstagramSquareSolid from "@/assets/icons/instagram-square-solid.svg?reac
 import LinkedinSquareSolid from "@/assets/icons/linkedin-square-solid.svg?react"
 import TiktokSquareSolid from "@/assets/icons/tiktok-square-solid.svg?react"
 import YoutubeSquareSolid from "@/assets/icons/youtube-square-solid.svg?react"
+import D2LSolid from "@/assets/icons/d2l-solid.svg?react"
+import EnvelopeSolid from "@/assets/icons/envelope-solid.svg?react"
+import Microsoft from "@/assets/icons/microsoft.svg?react"
+import QustionSolid from "@/assets/icons/question-solid.svg?react"
+import UserSolid from "@/assets/icons/user-solid.svg?react"
 
 export type IconComponent = FunctionComponent<JSX.SVGAttributes<SVGSVGElement> & {
 	title?: string
@@ -60,6 +65,11 @@ const icons = {
 	"linkedin-square-solid": LinkedinSquareSolid,
 	"tiktok-square-solid": TiktokSquareSolid,
 	"youtube-square-solid": YoutubeSquareSolid,
+	"d2l-solid": D2LSolid,
+	"envelope-solid": EnvelopeSolid,
+	"microsoft": Microsoft,
+	"question-solid": QustionSolid,
+	"user-solid": UserSolid,
 }
 
 /** Map of icon names to icon svg components */

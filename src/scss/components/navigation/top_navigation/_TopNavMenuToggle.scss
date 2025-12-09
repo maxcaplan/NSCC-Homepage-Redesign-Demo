@@ -7,7 +7,7 @@
 	position: relative;
 }
 
-.top-nav-menu-toggle button {
+.top-nav-menu-toggle .menu-toggle-button {
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
@@ -21,6 +21,7 @@
 	color: colors.$white;
 	font-family: fonts.$display;
 	text-wrap: nowrap;
+	cursor: pointer;
 	@include mixins.text-body;
 	@include mixins.transition-colors;
 
@@ -35,12 +36,8 @@
 	}
 }
 
-.top-nav-menu-toggle button:hover {
-	cursor: pointer;
-}
-
 /* purgecss ignore */
-.top-nav-menu-toggle button:not([aria-expanded="true"]):hover {
+.top-nav-menu-toggle .menu-toggle-button:hover {
 	background-color: colors.$primary-500;
 
 	.open-icon {
@@ -49,35 +46,36 @@
 }
 
 /* purgecss ignore */
-.top-nav-menu-toggle button:not([aria-expanded="true"]).active {
+.top-nav-menu-toggle.active .menu-toggle-button {
 	background-color: colors.$primary-800;
 	font-weight: 700;
 }
 
 /* purgecss ignore */
-.top-nav-menu-toggle button[aria-expanded="true"] {
+.top-nav-menu-toggle.menu-toggle-open .menu-toggle-button {
 	background-color: colors.$neutral-50;
 	color: colors.$primary-700;
 	font-weight: 700;
-
-	.icon:not(.open-icon):not(.close-icon) {
-		color: colors.$primary-700;
-	}
 }
 
 /* purgecss ignore */
-.top-nav-menu-toggle button[aria-expanded="false"] {
-	.icon:not(.open-icon):not(.close-icon) {
+.top-nav-menu-toggle .menu-toggle-button[aria-expanded="false"] {
+	.icon {
 		color: colors.$accent-500;
 	}
+
+	.open-icon,
+	.close-icon {
+		color: colors.$white;
+	}
 }
 
 /* purgecss ignore */
-.top-nav-menu-toggle button[aria-expanded="true"] .open-icon {
+.top-nav-menu-toggle.menu-toggle-open .open-icon {
 	display: none;
 }
 
 /* purgecss ignore */
-.top-nav-menu-toggle button:not([aria-expanded="true"]) .close-icon {
+.top-nav-menu-toggle:not(.menu-toggle-open) .close-icon {
 	display: none;
 }

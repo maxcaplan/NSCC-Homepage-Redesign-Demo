@@ -131,7 +131,7 @@ $header-height-large: calc($header-top-height-large + sizing.$size-xs * 2 + sizi
 	}
 
 	.search-menu-toggle,
-	.header-menu-toggle {
+	.hamburger-menu-toggle {
 		display: flex;
 
 		@include mixins.breakpoint('large') {

@@ -1,0 +1,50 @@
+@use "/src/scss/abstract/variables/sizing";
+@use "/src/scss/abstract/variables/colors";
+@use "/src/scss/abstract/variables/fonts";
+@use "/src/scss/abstract/mixins";
+@use "/src/scss/abstract/functions";
+
+.login-menu {
+	position: absolute;
+	right: -1px;
+	display: flex;
+	flex-direction: column;
+	gap: sizing.$size-xs;
+	width: functions.half-step-up($steps: 13);
+
+	padding-left: sizing.$size-md;
+	padding-right: sizing.$size-md;
+	padding-top: sizing.$size-lg;
+	padding-bottom: sizing.$size-md;
+
+	border-bottom-left-radius: sizing.$size-2xs;
+	border-bottom-right-radius: sizing.$size-2xs;
+	border-left: colors.$neutral-500 thin solid;
+	border-right: colors.$neutral-500 thin solid;
+	border-bottom: colors.$neutral-500 thin solid;
+
+	background-color: colors.$neutral-50;
+	color: colors.$on-background;
+	list-style: none;
+	@include mixins.shadow-sm;
+	@include mixins.shadow-sm-clip($top: true);
+
+	.login-menu-icon {
+		height: functions.quarter-step-up($steps: 1);
+	}
+}
+
+.connect-menu-item {
+	margin-bottom: sizing.$size-sm;
+}
+
+.connect-menu-item-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.connect-menu-item-subheading {
+	font-weight: 400;
+	font-family: fonts.$regular;
+	@include mixins.text-label;
+}
