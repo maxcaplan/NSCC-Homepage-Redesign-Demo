@@ -1,3 +1,7 @@
 .menu.menu-closed {
 	display: none;
 }
+
+.menu-toggle-hovered .menu.menu-closed {
+	display: initial;
+}
