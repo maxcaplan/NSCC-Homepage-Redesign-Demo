@@ -42,13 +42,15 @@ export function Header(props: HeaderProps) {
 						<div class="right-align">
 							<SearchBox />
 
-							<SearchMenuToggle>
-								<SearchMenuToggle.Button />
-							</SearchMenuToggle>
+							<ul class="mobile-navigation-buttons">
+								<SearchMenuToggle>
+									<SearchMenuToggle.Button />
+								</SearchMenuToggle>
 
-							<HamburgerMenuToggle>
-								<HamburgerMenuToggle.Button />
-							</HamburgerMenuToggle>
+								<HamburgerMenuToggle>
+									<HamburgerMenuToggle.Button />
+								</HamburgerMenuToggle>
+							</ul>
 						</div>
 					</div>
 				</div>

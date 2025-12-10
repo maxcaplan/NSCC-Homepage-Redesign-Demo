@@ -130,9 +130,12 @@ $header-height-large: calc($header-top-height-large + sizing.$size-xs * 2 + sizi
 		}
 	}
 
-	.search-menu-toggle,
-	.hamburger-menu-toggle {
+	.mobile-navigation-buttons {
 		display: flex;
+		justify-content: end;
+		align-items: center;
+		gap: sizing.$size-xs;
+		list-style: none;
 
 		@include mixins.breakpoint('large') {
 			display: none;
