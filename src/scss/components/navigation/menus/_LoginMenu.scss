@@ -37,14 +37,3 @@
 .connect-menu-item {
 	margin-bottom: sizing.$size-sm;
 }
-
-.connect-menu-item-body {
-	display: flex;
-	flex-direction: column;
-}
-
-.connect-menu-item-subheading {
-	font-weight: 400;
-	font-family: fonts.$regular;
-	@include mixins.text-label;
-}

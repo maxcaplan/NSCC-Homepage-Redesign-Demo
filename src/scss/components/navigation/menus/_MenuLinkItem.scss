@@ -3,10 +3,17 @@
 @use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 
+.menu-link-item {
+	display: flex;
+	flex: 1;
+	list-style: none;
+}
+
 .menu-link-item a {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	flex: 1;
 	gap: sizing.$size-sm;
 
 	padding-left: sizing.$size-sm;
@@ -22,6 +29,17 @@
 	font-weight: 700;
 	font-family: fonts.$display;
 	@include mixins.transition-colors;
+
+	.menu-link-item-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.menu-link-item-subheading {
+		font-weight: 400;
+		font-family: fonts.$regular;
+		@include mixins.text-label;
+	}
 }
 
 .menu-link-item a:hover {

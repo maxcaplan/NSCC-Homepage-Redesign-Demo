@@ -1,9 +1,10 @@
 import { createContext, type ComponentChildren, type Consumer, type Context, type RefObject } from "preact";
-import { useContext, useEffect, useRef, useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import { append_classes } from "@/util/classes";
 import type { JSX } from "preact/jsx-runtime";
 import { createMenu, type MenuType } from "../Menu";
 import type { MultiMenu } from "../MultiMenu";
+import { useMenuToggleState } from "@/hooks/menus";
 
 export interface MenuToggleContextType<MenuKeyType> {
 	/** Name of menu associated with this toggle context */
@@ -21,6 +22,8 @@ interface MenuToggleProps<MenuKeyType> {
 	menu: MenuKeyType
 	/** Id of the menu this toggle controls */
 	"menu-id"?: string
+	/** Disable hover behaviour for this toggle */
+	disable_hover?: boolean
 	/** Element id */
 	id?: string
 	/** Element class */
@@ -54,74 +57,46 @@ export interface MenuToggleType<MenuKeyType> {
 	Consumer: Consumer<MenuToggleContextType<MenuKeyType>>
 }
 
+export interface CreateMenuToggleOptions {
+	disable_hover: boolean,
+	/** Hover in time to open the menu toggle */
+	hover_open_delay: number,
+	/** Hover out time to close the menu toggle */
+	hover_close_delay: number,
+}
+
 /** Create menu toggle components for a multi menu */
 export function createMenuToggle<MenuKeyType>(
 	/** Multi menu to create menu toggle for */
 	multi_menu: MultiMenu<MenuKeyType>,
-	/** Hover in time to open the menu toggle */
-	hover_open_delay: number = 150,
-	/** Hover out time to close the menu toggle */
-	hover_close_delay: number = 300,
+	/** Menu toggle options */
+	options: CreateMenuToggleOptions = {
+		disable_hover: false,
+		/** Hover in time to open the menu toggle */
+		hover_open_delay: 150,
+		/** Hover out time to close the menu toggle */
+		hover_close_delay: 300,
+	}
 ) {
 	const MenuToggleContext = createContext<MenuToggleContextType<MenuKeyType>>({})
 
 	/** Menu toggle wrapper component */
 	const MenuToggle: MenuToggleType<MenuKeyType> = (props) => {
-		const { open_menu } = useContext(multi_menu.context)
-
-		const [is_open, set_is_open] = useState<boolean | undefined>(open_menu === props.menu)
-		const [is_mouse_over, set_is_mouse_over] = useState(false)
-		const [is_hovering, set_is_hovering] = useState<boolean>(false)
-
-		const hover_timer_ref = useRef<number | null>(null)
-		const focus_ref = useRef<HTMLElement>(null)
-		const is_mouse_over_ref = useRef<boolean>()
-
-		const clear_hover_timeout = (hover_timer_ref: RefObject<number | null>) => {
-			if (hover_timer_ref.current !== null) {
-				clearTimeout(hover_timer_ref.current)
-				hover_timer_ref.current = null
+		const [
+			is_open,
+			is_hovered,
+			focus_ref,
+			handle_mouse_enter,
+			handle_mouse_exit
+		] = useMenuToggleState(
+			multi_menu,
+			props.menu,
+			{
+				hover_open_delay: options.hover_open_delay,
+				hover_close_delay: options.hover_close_delay,
+				disable_hover: options.disable_hover || props.disable_hover || false
 			}
-		}
-
-		const hover_timer_callback = () => {
-			set_is_hovering(is_mouse_over_ref.current === true)
-		}
-
-		// Update open state when open menu changes
-		useEffect(() => {
-			set_is_open(open_menu === props.menu)
-		}, [props.menu, open_menu])
-
-		// Update hover timer on mouse over change
-		useEffect(() => {
-			is_mouse_over_ref.current = is_mouse_over
-
-			clear_hover_timeout(hover_timer_ref)
-
-			if (is_open) {
-				set_is_hovering(false)
-				return
-			}
-
-			hover_timer_ref.current = setTimeout(
-				hover_timer_callback,
-				is_mouse_over ? hover_open_delay : hover_close_delay
-			)
-		}, [is_open, is_mouse_over])
-
-		useEffect(() => {
-			console.log(is_hovering)
-		}, [is_hovering])
-
-		// Clear hover timer on unmount
-		useEffect(() => {
-			return () => {
-				if (hover_timer_ref.current !== null) {
-					hover_timer_ref.current = null
-				}
-			}
-		}, [])
+		)
 
 		return (
 			<li
@@ -129,11 +104,11 @@ export function createMenuToggle<MenuKeyType>(
 				class={append_classes(
 					"menu-toggle",
 					is_open ? "menu-toggle-open" : undefined,
-					is_hovering && !is_open ? "menu-toggle-hovered" : undefined,
+					is_hovered && !is_open ? "menu-toggle-hovered" : undefined,
 					props.class,
 				)}
-				onMouseEnter={() => set_is_mouse_over(true)}
-				onMouseLeave={() => set_is_mouse_over(false)}
+				onMouseEnter={handle_mouse_enter}
+				onMouseLeave={handle_mouse_exit}
 			>
 				<MenuToggleContext.Provider
 					value={{
@@ -166,7 +141,6 @@ export function createMenuToggle<MenuKeyType>(
 		return (
 			<button
 				aria-label={props.label}
-				aria-haspopup="true"
 				aria-controls={menu_id}
 				aria-expanded={is_open || false}
 				onClick={handle_click}

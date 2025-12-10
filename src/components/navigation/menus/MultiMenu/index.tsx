@@ -1,5 +1,6 @@
 import { useMenuState, type CloseMenuCallback, type ToggleMenuCallback } from "@/hooks/menus"
 import { createContext, type ComponentChildren, type Consumer, type Context } from "preact"
+import type { Dispatch, StateUpdater } from "preact/hooks"
 import type { JSX } from "preact/jsx-runtime"
 
 interface MultiMenuInternalContextType<MenuKeyType> {
@@ -9,6 +10,10 @@ interface MultiMenuInternalContextType<MenuKeyType> {
 	toggle_menu?: ToggleMenuCallback<MenuKeyType>
 	/** Close the open menu */
 	close_menu?: CloseMenuCallback<MenuKeyType>
+	/** Menu that is currently being hovered */
+	hovered_menu?: MenuKeyType | null
+	/** Set menu that is currently being hovered */
+	set_hovered_menu?: Dispatch<StateUpdater<MenuKeyType | null>>
 }
 
 export interface MultiMenuProvider<MenuKeyType> {
@@ -31,7 +36,13 @@ export function createMultiMenu<MenuKeyType>(): MultiMenu<MenuKeyType> {
 	const MultiMenuContext = createContext<MultiMenuInternalContextType<MenuKeyType>>({})
 
 	const Provider: MultiMenuProvider<MenuKeyType> = (props) => {
-		const [open_menu, toggle_menu, close_menu] = useMenuState<MenuKeyType | null>(null)
+		const [
+			open_menu,
+			toggle_menu,
+			close_menu,
+			hovered_menu,
+			set_hovered_menu,
+		] = useMenuState<MenuKeyType | null>()
 
 		return (
 			<MultiMenuContext.Provider
@@ -39,6 +50,8 @@ export function createMultiMenu<MenuKeyType>(): MultiMenu<MenuKeyType> {
 					open_menu,
 					toggle_menu,
 					close_menu,
+					hovered_menu,
+					set_hovered_menu,
 				}}
 			>
 				{props.children}

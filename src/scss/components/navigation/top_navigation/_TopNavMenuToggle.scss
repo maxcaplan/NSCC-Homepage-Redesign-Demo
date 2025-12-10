@@ -3,10 +3,6 @@
 @use '/src/scss/abstract/variables/fonts';
 @use '/src/scss/abstract/mixins';
 
-.top-nav-menu-toggle {
-	position: relative;
-}
-
 .top-nav-menu-toggle .menu-toggle-button {
 	display: inline-flex;
 	flex-direction: row;

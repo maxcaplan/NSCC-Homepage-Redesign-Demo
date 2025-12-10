@@ -7,9 +7,8 @@ import { TopNavMenuToggle } from "@/components/navigation/top_navigation/TopNavM
 import { Icon } from "@/components/Icon"
 import { SearchMenuToggle } from "./SearchMenuToggle"
 import { HamburgerMenuToggle } from "./HamburgerMenuToggle";
-import { LoginMenu } from "@/components/navigation/menus/LoginMenu";
-import { useContext } from "preact/hooks";
-import { AppNavMultiMenu } from "@/components/navigation/AppNavMultiMenu";
+
+import { TopLoginMenu } from "@/components/navigation/menus/TopLoginMenu";
 
 interface HeaderProps {
 	/** Whether the header is sticking to the top of the window while scrolling */
@@ -18,8 +17,6 @@ interface HeaderProps {
 
 /** Page layout header component */
 export function Header(props: HeaderProps) {
-	const { close_menu } = useContext(AppNavMultiMenu.context)
-
 	return (
 		<header id="header" class={props.sticking ? "header-sticking" : ""}>
 			<div class="header-wrapper">
@@ -170,6 +167,7 @@ export function Header(props: HeaderProps) {
 									menu="login"
 									menu-id="top-login-menu"
 									active={false}
+									class="top-login-menu-toggle"
 								>
 									<TopNavMenuToggle.Button
 										label="Toggle Login menu"
@@ -179,16 +177,7 @@ export function Header(props: HeaderProps) {
 										Login
 									</TopNavMenuToggle.Button>
 
-									<TopNavMenuToggle.Menu>
-										<TopNavMenuToggle.Consumer>
-											{({ focus_ref }) => (
-												<LoginMenu
-													focus_ref={focus_ref}
-													close_menu={close_menu}
-												/>
-											)}
-										</TopNavMenuToggle.Consumer>
-									</TopNavMenuToggle.Menu>
+									<TopLoginMenu />
 								</TopNavMenuToggle>
 							</ul>
 						</nav>

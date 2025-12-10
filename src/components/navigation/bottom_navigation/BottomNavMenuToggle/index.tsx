@@ -45,6 +45,7 @@ const BottomNavMenuToggle: BottomNavMenuToggleType = (props) => {
 		<MenuToggle
 			menu={props.menu}
 			menu-id={props["menu-id"]}
+			disable_hover={true}
 			class={append_classes(
 				"bottom-nav-menu-toggle",
 				props.active ? "active" : undefined

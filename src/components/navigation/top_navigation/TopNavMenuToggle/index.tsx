@@ -14,6 +14,8 @@ interface TopNavMenuToggleProps<MenuKeyType> {
 	"menu-id"?: string
 	/** Active state of navigation */
 	active?: boolean
+	/** Element class */
+	class?: string
 	/** Component children */
 	children?: ComponentChildren
 }
@@ -47,7 +49,8 @@ const TopNavMenuToggle: TopNavMenuToggleType = (props) => {
 			menu-id={props["menu-id"]}
 			class={append_classes(
 				"top-nav-menu-toggle",
-				props.active ? "active" : undefined
+				props.active ? "active" : undefined,
+				props.class,
 			)}
 		>
 			{props.children}

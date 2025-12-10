@@ -113,7 +113,6 @@ export function createMenu<MenuKeyType>(
 
 		return (
 			<div
-				role="menu"
 				id={menu_id}
 				class={append_classes(
 					"menu",

@@ -10,7 +10,7 @@ interface LoginMenuProps {
 	focus_ref?: Ref<HTMLElement>
 }
 
-/** Top navigation login popup menu component */
+/** Top and bottom navigation login fly out menu component */
 export function LoginMenu(props: LoginMenuProps) {
 	const menu_link_items: MenuLinkItemProps[] = [
 		{
@@ -18,11 +18,10 @@ export function LoginMenu(props: LoginMenuProps) {
 			class: "connect-menu-item",
 			focus_ref: props.focus_ref,
 			children: (
-				<span class="connect-menu-item-body">
-					<span class="connect-menu-item-heading">
-						Connect
-					</span>
-					<span class="connect-menu-item-subheading">
+				<span class="menu-link-item-body">
+					Connect
+
+					<span class="menu-link-item-subheading">
 						NSCC's student and employee intranet. Find services, supports and campus-related info.
 					</span>
 				</span>
